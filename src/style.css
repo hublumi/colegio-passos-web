@@ -1103,6 +1103,25 @@ textarea.form-control {
   color: var(--text-light);
 }
 
+.pmz-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pmz-logo {
+  height: 24px;
+  width: auto;
+  opacity: 0.75;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: block;
+}
+
+.pmz-logo:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
 .footer-7-legal {
   list-style: none;
   display: flex;
