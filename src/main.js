@@ -127,4 +127,130 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // ═══════════════════════════════════════════════════
+  // 3D Cylinder Carousel — Infraestrutura
+  // ═══════════════════════════════════════════════════
+  const cylinder = document.getElementById('carousel3d-cylinder');
+  const overlay  = document.getElementById('carousel3d-overlay');
+  const overlayImg = document.getElementById('carousel3d-overlay-img');
+
+  if (cylinder && overlay) {
+    const images = [
+      { src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop', alt: 'Sala de aula interativa' },
+      { src: '/patio_colegio.png',                                                                             alt: 'Pátio do Colégio Passos' },
+      { src: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop', alt: 'Biblioteca e materiais didáticos' },
+      { src: 'https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=800&auto=format&fit=crop', alt: 'Corredor escolar moderno' },
+      { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop', alt: 'Crianças aprendendo juntas' },
+      { src: 'https://images.unsplash.com/photo-1604881991720-f91add269bed?q=80&w=800&auto=format&fit=crop', alt: 'Área de lazer e recreação' },
+    ];
+
+    const isMobile   = () => window.innerWidth <= 640;
+    const faceCount  = images.length;
+    const getFaceW   = () => isMobile() ? 240 : 320;
+    const getCylW    = () => getFaceW() * faceCount;
+    const getRadius  = () => getCylW() / (2 * Math.PI);
+
+    // Build faces
+    images.forEach((img, i) => {
+      const face = document.createElement('div');
+      face.className = 'carousel3d-face';
+      const image = document.createElement('img');
+      image.src  = img.src;
+      image.alt  = img.alt;
+      image.loading = 'lazy';
+      image.addEventListener('click', (e) => {
+        if (Math.abs(dragDelta) > 6) return; // ignore clicks after drag
+        e.stopPropagation();
+        overlayImg.src = img.src;
+        overlay.classList.add('active');
+      });
+      face.appendChild(image);
+      cylinder.appendChild(face);
+    });
+
+    // Position faces on cylinder
+    const layoutFaces = () => {
+      const faceW  = getFaceW();
+      const radius = getRadius();
+      cylinder.style.setProperty('--c3d-face-w', faceW + 'px');
+      cylinder.style.width = faceW + 'px';
+      [...cylinder.querySelectorAll('.carousel3d-face')].forEach((face, i) => {
+        const angle = i * (360 / faceCount);
+        face.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+      });
+    };
+    layoutFaces();
+    window.addEventListener('resize', layoutFaces);
+
+    // ── Drag with spring inertia ──
+    let rotY     = 0;   // current rotation in degrees
+    let velY     = 0;   // velocity
+    let dragStartX = 0;
+    let dragDelta  = 0;
+    let isDragging = false;
+    let rafId    = null;
+
+    const setRotation = (deg) => {
+      cylinder.style.transition = 'none';
+      cylinder.style.transform  = `rotateY(${deg}deg)`;
+    };
+
+    const springLoop = () => {
+      if (Math.abs(velY) < 0.01) { velY = 0; return; }
+      velY  *= 0.94;          // damping
+      rotY  += velY;
+      setRotation(rotY);
+      rafId  = requestAnimationFrame(springLoop);
+    };
+
+    const onDragStart = (clientX) => {
+      isDragging  = true;
+      dragStartX  = clientX;
+      dragDelta   = 0;
+      velY        = 0;
+      cancelAnimationFrame(rafId);
+    };
+
+    const onDragMove = (clientX) => {
+      if (!isDragging) return;
+      dragDelta = clientX - dragStartX;
+      rotY     += dragDelta * 0.25;
+      dragStartX = clientX;
+      setRotation(rotY);
+    };
+
+    const onDragEnd = (velocityX) => {
+      isDragging = false;
+      velY = velocityX * 0.12;
+      rafId = requestAnimationFrame(springLoop);
+    };
+
+    // Mouse events
+    cylinder.addEventListener('mousedown', (e) => onDragStart(e.clientX));
+    window.addEventListener('mousemove',   (e) => isDragging && onDragMove(e.clientX));
+    window.addEventListener('mouseup',     (e) => isDragging && onDragEnd(e.movementX));
+
+    // Touch events
+    let lastTouchX = 0;
+    cylinder.addEventListener('touchstart', (e) => {
+      lastTouchX = e.touches[0].clientX;
+      onDragStart(lastTouchX);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const dx = e.touches[0].clientX - lastTouchX;
+      lastTouchX = e.touches[0].clientX;
+      onDragMove(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      onDragEnd(e.changedTouches[0].clientX - lastTouchX);
+    });
+
+    // ── Close overlay ──
+    overlay.addEventListener('click', () => {
+      overlay.classList.remove('active');
+    });
+  }
 });

@@ -530,8 +530,131 @@ nav a:hover::after {
   }
 }
 
+/* ═══════════════════════════════════════════════════
+   3D Cylinder Carousel — Infraestrutura
+   ═══════════════════════════════════════════════════ */
+
+.carousel3d-wrapper {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+}
+
+.carousel3d-scene {
+  width: 100%;
+  height: 100%;
+  perspective: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.carousel3d-cylinder {
+  position: relative;
+  width: var(--c3d-face-w, 320px);
+  height: 380px;
+  transform-style: preserve-3d;
+  cursor: grab;
+  will-change: transform;
+  transition: transform 0.08s linear; /* overridden by JS for inertia */
+}
+
+.carousel3d-cylinder:active {
+  cursor: grabbing;
+}
+
+.carousel3d-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 16px;
+  overflow: hidden;
+  /* transform set by JS */
+}
+
+.carousel3d-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  transition: filter 0.4s ease, transform 0.3s ease;
+  filter: blur(0px);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: all;
+}
+
+.carousel3d-face img:hover {
+  filter: brightness(1.08);
+  transform: scale(1.03);
+}
+
+/* ── Expanded overlay ── */
+.carousel3d-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.carousel3d-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.carousel3d-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+  transform: scale(0.85);
+  transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.carousel3d-overlay.active img {
+  transform: scale(1);
+}
+
+/* ── Drag hint ── */
+.carousel3d-hint {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+  opacity: 0.75;
+}
+
+@media (max-width: 640px) {
+  .carousel3d-wrapper {
+    height: 340px;
+  }
+  .carousel3d-cylinder {
+    height: 280px;
+  }
+}
+
 
 /* Blog Section */
+
 .blog-card {
   border-radius: var(--radius-lg);
   overflow: hidden;
