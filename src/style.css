@@ -1241,16 +1241,32 @@ textarea.form-control {
     margin-right: auto;
   }
 
-  /* CTA buttons: full-width column stack */
-  .hero-content .btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-right: 0 !important;
+  /* CTA buttons: side-by-side flex layout on mobile */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .hero-content .btn + .btn {
-    margin-top: 0.75rem;
+  .hero-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-content .hero-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-content .btn {
+    flex: 1;
+    min-width: 140px;
+    max-width: 180px;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    margin-right: 0 !important;
   }
 
   /* Video fills width, taller crop on mobile */
@@ -1297,8 +1313,10 @@ textarea.form-control {
   }
 
   .grade-card {
-    min-width: 280px;
-    padding: 1.5rem;
+    flex: 0 0 85%;
+    min-width: 290px;
+    max-width: 340px;
+    padding: 1.5rem 1.25rem;
   }
 
   /* ── 3D carousel: compact ── */
