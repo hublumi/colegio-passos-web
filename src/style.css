@@ -1184,6 +1184,21 @@ textarea.form-control {
    ═══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
+  /* ── Header: compact navbar for mobile ── */
+  body > header {
+    top: 10px;
+    width: calc(100% - 24px);
+    border-radius: 20px;
+  }
+
+  body > header .container {
+    height: 58px;
+  }
+
+  .logo img {
+    height: 42px;
+  }
+
   /* ── Typography scale ── */
   h2 {
     font-size: clamp(1.6rem, 7vw, 2.2rem);
@@ -1423,7 +1438,7 @@ textarea.form-control {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 80px;
+    top: 72px;
     right: -260px;
     width: 200px;
     height: auto;
