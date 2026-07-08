@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
       { src: '/infraestrutura/IMG_6194.jpg', alt: 'Pátio Colégio Passos' },
       { src: '/infraestrutura/IMG_6195.jpg', alt: 'Corredor Colégio Passos' },
       { src: '/infraestrutura/IMG_6201.jpg', alt: 'Espaço externo Colégio Passos' },
-      { src: '/infraestrutura/IMG_6202.jpg', alt: 'Área verde Colégio Passos' },
       { src: '/infraestrutura/IMG_6203.jpg', alt: 'Quadra Colégio Passos' },
       { src: '/infraestrutura/IMG_6218.jpg', alt: 'Biblioteca Colégio Passos' },
       { src: '/infraestrutura/IMG_6265.jpg', alt: 'Estrutura Colégio Passos' },
