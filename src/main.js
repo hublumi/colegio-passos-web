@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Drag with spring inertia + auto-rotation ──
     let rotY          = 0;    // current rotation in degrees
     let velY          = 0;    // velocity (used for spring after drag)
-    let autoSpeed     = 0.18; // degrees per frame  (~3 s per full revolution at 60fps)
+    let autoSpeed     = 0.06; // degrees per frame  (~8 s per image at 60fps)
     let isAutoPlaying = true;
     let isDragging    = false;
     let dragStartX    = 0;
