@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const startAutoScroll = () => {
       stopAutoScroll();
+      // Não roda autoplay no mobile para não bugar o usuário (fica estático)
+      if (window.innerWidth <= 768) return;
+      
       scrollInterval = setInterval(() => {
         const cardWidth = getScrollAmount();
         const maxScrollLeft = gradeGrid.scrollWidth - gradeGrid.clientWidth;
