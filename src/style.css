@@ -94,7 +94,7 @@ p {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 2.2rem 0;
 }
 
 .bg-surface {
@@ -306,8 +306,9 @@ nav a:hover::after {
 
 /* Hero Section */
 .hero {
-  padding-top: 150px;
-  min-height: 85vh;
+  padding-top: 110px;
+  padding-bottom: 2rem;
+  min-height: auto;
   display: flex;
   align-items: center;
   position: relative;
