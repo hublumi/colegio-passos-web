@@ -387,6 +387,14 @@ nav a:hover::after {
   transform: scale(1.02);
 }
 
+/* Video hero */
+.hero-video {
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  display: block;
+}
+
 /* Grade Educacional Section */
 .grade-section {
   background-color: var(--bg-surface);
