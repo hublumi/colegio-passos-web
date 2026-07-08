@@ -1144,23 +1144,184 @@ textarea.form-control {
 }
 
 
+/* (mobile styles moved to the comprehensive block below) */
+
 /* Ocultar botão sanduíche por padrão no desktop */
 .mobile-menu-toggle {
   display: none;
 }
 
-/* Media Queries */
-@media (max-width: 992px) {
-  .grid-2, .grid-3 {
-    grid-template-columns: 1fr;
+
+/* ═══════════════════════════════════════════════════
+   MOBILE REFINEMENTS — ≤ 768px
+   Premium UI/UX: Identity · Familiarity · Consistency
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Typography scale ── */
+  h2 {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    margin-bottom: 1rem;
   }
+
+  p {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  /* ── Container breathing room ── */
+  .container {
+    padding: 0 18px;
+  }
+
+  /* ── Section vertical rhythm ── */
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  /* ── Hero: stack video BELOW text on mobile ── */
+  .hero {
+    padding-top: 100px;
+    min-height: auto;
+    padding-bottom: 3rem;
+  }
+
+  .hero .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Text first, then video — natural reading order */
+  .hero-content {
+    order: 1;
+    text-align: center;
+  }
+
+  .hero-img {
+    order: 2;
+  }
+
+  .hero-seo-title {
+    font-size: 0.8rem;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+
+  /* Center hero paragraph */
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* CTA buttons: full-width column stack */
+  .hero-content .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-right: 0 !important;
+  }
+
+  .hero-content .btn + .btn {
+    margin-top: 0.75rem;
+  }
+
+  /* Video fills width, taller crop on mobile */
+  .hero-video {
+    aspect-ratio: 16 / 10;
+  }
+
+  /* ── About / Historia: reverse stack (img on top) ── */
+  .about-img {
+    order: 0;
+  }
+
+  .about-content {
+    order: 1;
+    text-align: center;
+  }
+
+  .about-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── Grids collapse to single column ── */
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* ── Glass cards: less padding on mobile ── */
+  .glass-card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  /* ── Text-center section headers ── */
+  [style*="margin: 0 auto 1.5rem auto"] {
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* ── Grade carousel: shorter on mobile ── */
+  .grade-carousel-wrapper {
+    margin: 0 -18px; /* bleed to edges */
+    padding: 0 18px;
+  }
+
+  .grade-card {
+    min-width: 280px;
+    padding: 1.5rem;
+  }
+
+  /* ── 3D carousel: compact ── */
+  .carousel3d-wrapper {
+    height: 300px;
+    border-radius: 16px;
+  }
+
+  .carousel3d-cylinder {
+    height: 260px;
+  }
+
+  /* ── Partners: single column ── */
   .partners-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-}
 
-@media (max-width: 768px) {
-  /* Menu Sanduíche */
+  .partners-circle-wrapper {
+    margin-top: 2rem;
+  }
+
+  /* ── Contact: stack map below info ── */
+  #contato .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .map-wrapper {
+    min-height: 260px;
+  }
+
+  /* ── Footer ── */
+  .footer-7-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-7-legal {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .footer-7-bottom {
+    text-align: center;
+  }
+
+  /* ── Nav menu ── */
   .mobile-menu-toggle {
     display: block;
     position: relative;
@@ -1177,7 +1338,7 @@ textarea.form-control {
     box-shadow: 0 4px 10px rgba(242, 110, 35, 0.08);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
+
   .mobile-menu-toggle span {
     position: absolute;
     left: 11px;
@@ -1189,17 +1350,9 @@ textarea.form-control {
     transform-origin: center;
   }
 
-  .mobile-menu-toggle span:nth-child(1) {
-    top: 13px;
-  }
-
-  .mobile-menu-toggle span:nth-child(2) {
-    top: 18px;
-  }
-
-  .mobile-menu-toggle span:nth-child(3) {
-    top: 23px;
-  }
+  .mobile-menu-toggle span:nth-child(1) { top: 13px; }
+  .mobile-menu-toggle span:nth-child(2) { top: 18px; }
+  .mobile-menu-toggle span:nth-child(3) { top: 23px; }
 
   .mobile-menu-toggle.active {
     background: rgba(242, 110, 35, 0.2);
@@ -1209,12 +1362,10 @@ textarea.form-control {
   .mobile-menu-toggle.active span:nth-child(1) {
     transform: translateY(5px) rotate(45deg);
   }
-
   .mobile-menu-toggle.active span:nth-child(2) {
     opacity: 0;
     transform: scale(0);
   }
-
   .mobile-menu-toggle.active span:nth-child(3) {
     transform: translateY(-5px) rotate(-45deg);
   }
@@ -1228,11 +1379,11 @@ textarea.form-control {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 90px;
+    top: 80px;
     right: -260px;
     width: 200px;
     height: auto;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
@@ -1249,26 +1400,29 @@ textarea.form-control {
   }
 
   nav ul.active {
-    right: 20px;
+    right: 18px;
     opacity: 1;
     pointer-events: auto;
   }
 
   nav a {
-    font-size: 1.05rem;
+    font-size: 1rem;
     width: 100%;
     display: block;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--border-subtle);
   }
 
-  /* Oculta botão cta no mobile se necessário, ou adapta ele */
+  nav ul li:last-child a {
+    border-bottom: none;
+  }
+
   body > header .btn-primary {
     display: none;
   }
 
-  .section {
-    padding: 3rem 0;
+  /* ── Wave hide on mobile (performance) ── */
+  .hero-wave {
+    display: none;
   }
 }
-
