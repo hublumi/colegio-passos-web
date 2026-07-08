@@ -137,12 +137,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (cylinder && overlay) {
     const images = [
-      { src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop', alt: 'Sala de aula interativa' },
-      { src: '/patio_colegio.png',                                                                             alt: 'Pátio do Colégio Passos' },
-      { src: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop', alt: 'Biblioteca e materiais didáticos' },
-      { src: 'https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=800&auto=format&fit=crop', alt: 'Corredor escolar moderno' },
-      { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop', alt: 'Crianças aprendendo juntas' },
-      { src: 'https://images.unsplash.com/photo-1604881991720-f91add269bed?q=80&w=800&auto=format&fit=crop', alt: 'Área de lazer e recreação' },
+      { src: '/infra/IMG_6156.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6138.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6154.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6162.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6167.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6191.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6194.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6195.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6201.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6202.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6203.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6218.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6265.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6271.jpg', alt: 'Infraestrutura Colégio Passos' },
+      { src: '/infra/IMG_6275.jpg', alt: 'Infraestrutura Colégio Passos' },
     ];
 
     const isMobile   = () => window.innerWidth <= 640;
