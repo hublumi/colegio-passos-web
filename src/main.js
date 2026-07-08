@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (gradeGrid) {
     let scrollInterval;
-    const intervalTime = 1200; // Reduzido de 2000ms para 1200ms para passar mais rápido
+    const intervalTime = 3500; // ~3.5s por card para dar tempo de ler
     
     const getScrollAmount = () => {
       const firstCard = gradeGrid.querySelector('.grade-card');
