@@ -94,7 +94,7 @@ p {
 }
 
 .section {
-  padding: 2.2rem 0;
+  padding: 3rem 0;
 }
 
 .bg-surface {
@@ -306,9 +306,8 @@ nav a:hover::after {
 
 /* Hero Section */
 .hero {
-  padding-top: 110px;
-  padding-bottom: 2rem;
-  min-height: auto;
+  padding-top: 150px;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -396,9 +395,13 @@ nav a:hover::after {
   display: block;
 }
 
-/* Grade Educacional Section */
 .grade-section {
   background-color: var(--bg-surface);
+  padding-bottom: 1rem;
+}
+
+#infraestrutura {
+  padding-top: 1rem;
 }
 
 .grade-carousel-wrapper {
@@ -413,7 +416,7 @@ nav a:hover::after {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding: 2rem 0;
+  padding: 1.5rem 0 0.5rem 0;
   
   /* Esconde a barra de rolagem */
   -ms-overflow-style: none;
