@@ -183,25 +183,53 @@ document.addEventListener('DOMContentLoaded', () => {
     layoutFaces();
     window.addEventListener('resize', layoutFaces);
 
-    // ── Drag with spring inertia ──
-    let rotY     = 0;   // current rotation in degrees
-    let velY     = 0;   // velocity
-    let dragStartX = 0;
-    let dragDelta  = 0;
-    let isDragging = false;
-    let rafId    = null;
+    // ── Drag with spring inertia + auto-rotation ──
+    let rotY          = 0;    // current rotation in degrees
+    let velY          = 0;    // velocity (used for spring after drag)
+    let autoSpeed     = 0.18; // degrees per frame  (~3 s per full revolution at 60fps)
+    let isAutoPlaying = true;
+    let isDragging    = false;
+    let dragStartX    = 0;
+    let dragDelta     = 0;
+    let rafId         = null;
+    let resumeTimer   = null;
 
     const setRotation = (deg) => {
       cylinder.style.transition = 'none';
       cylinder.style.transform  = `rotateY(${deg}deg)`;
     };
 
+    // Auto-rotate loop — smooth continuous spin
+    const autoLoop = () => {
+      rotY += autoSpeed;
+      setRotation(rotY);
+      rafId = requestAnimationFrame(autoLoop);
+    };
+
+    const startAutoPlay = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      isAutoPlaying = true;
+      rafId = requestAnimationFrame(autoLoop);
+    };
+
+    const stopAutoPlay = () => {
+      isAutoPlaying = false;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = null;
+    };
+
+    // Spring loop after drag release — decelerates then hands back to auto
     const springLoop = () => {
-      if (Math.abs(velY) < 0.01) { velY = 0; return; }
-      velY  *= 0.94;          // damping
+      if (Math.abs(velY) < 0.05) {
+        velY = 0;
+        // Resume auto-play after 2 s of no interaction
+        resumeTimer = setTimeout(startAutoPlay, 2000);
+        return;
+      }
+      velY  *= 0.93;  // damping
       rotY  += velY;
       setRotation(rotY);
-      rafId  = requestAnimationFrame(springLoop);
+      rafId = requestAnimationFrame(springLoop);
     };
 
     const onDragStart = (clientX) => {
@@ -209,13 +237,14 @@ document.addEventListener('DOMContentLoaded', () => {
       dragStartX  = clientX;
       dragDelta   = 0;
       velY        = 0;
-      cancelAnimationFrame(rafId);
+      clearTimeout(resumeTimer);
+      stopAutoPlay();
     };
 
     const onDragMove = (clientX) => {
       if (!isDragging) return;
-      dragDelta = clientX - dragStartX;
-      rotY     += dragDelta * 0.25;
+      dragDelta  = clientX - dragStartX;
+      rotY      += dragDelta * 0.25;
       dragStartX = clientX;
       setRotation(rotY);
     };
@@ -223,6 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const onDragEnd = (velocityX) => {
       isDragging = false;
       velY = velocityX * 0.12;
+      if (rafId) cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(springLoop);
     };
 
@@ -248,9 +278,24 @@ document.addEventListener('DOMContentLoaded', () => {
       onDragEnd(e.changedTouches[0].clientX - lastTouchX);
     });
 
-    // ── Close overlay ──
+    // ── Pause on hover ──
+    const scene = document.getElementById('carousel3d-scene');
+    scene.addEventListener('mouseenter', () => {
+      if (isAutoPlaying) stopAutoPlay();
+    });
+    scene.addEventListener('mouseleave', () => {
+      if (!isDragging && !overlay.classList.contains('active')) {
+        startAutoPlay();
+      }
+    });
+
+    // ── Close overlay → resume autoplay ──
     overlay.addEventListener('click', () => {
       overlay.classList.remove('active');
+      startAutoPlay();
     });
+
+    // ── Kick off auto-rotation ──
+    startAutoPlay();
   }
 });
