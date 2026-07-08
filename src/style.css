@@ -771,13 +771,23 @@ nav a:hover::after {
 }
 
 .partner-card:nth-child(2) {
-  top: 340px;
-  left: 67px;
+  top: 178px;
+  left: 430px;
 }
 
 .partner-card:nth-child(3) {
-  top: 340px;
-  left: 413px;
+  top: 402px;
+  left: 358px;
+}
+
+.partner-card:nth-child(4) {
+  top: 402px;
+  left: 122px;
+}
+
+.partner-card:nth-child(5) {
+  top: 178px;
+  left: 50px;
 }
 
 .partner-logo-container {
@@ -881,18 +891,28 @@ nav a:hover::after {
   }
   
   .partner-card:nth-child(1) {
-    top: 20px;
+    top: 40px;
     left: 160px;
   }
 
   .partner-card:nth-child(2) {
-    top: 240px;
-    left: 50px;
+    top: 123px;
+    left: 274px;
   }
 
   .partner-card:nth-child(3) {
-    top: 240px;
-    left: 270px;
+    top: 257px;
+    left: 230px;
+  }
+
+  .partner-card:nth-child(4) {
+    top: 257px;
+    left: 90px;
+  }
+
+  .partner-card:nth-child(5) {
+    top: 123px;
+    left: 46px;
   }
 }
 
