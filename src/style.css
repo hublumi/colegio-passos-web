@@ -128,7 +128,7 @@ p {
 /* Glassmorphism Header */
 body > header {
   position: fixed;
-  top: 20px;
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 40px);
@@ -141,18 +141,18 @@ body > header {
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-md);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 0 10px;
+  padding: 0 15px;
 }
 
 body > header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 68px;
 }
 
 .logo img {
-  height: 64px;
+  height: 52px;
   width: auto;
   display: block;
 }
