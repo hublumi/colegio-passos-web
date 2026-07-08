@@ -140,8 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (cylinder && overlay) {
     const images = [
-      { src: '/infraestrutura/IMG_6156.jpg', alt: 'Infraestrutura Colégio Passos' },
-      { src: '/infraestrutura/IMG_6138.jpg', alt: 'Ambiente escolar Colégio Passos' },
       { src: '/infraestrutura/IMG_6154.jpg', alt: 'Espaço educacional Colégio Passos' },
       { src: '/infraestrutura/IMG_6162.jpg', alt: 'Instalações Colégio Passos' },
       { src: '/infraestrutura/IMG_6167.jpg', alt: 'Área de convivência Colégio Passos' },
