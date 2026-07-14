@@ -844,7 +844,6 @@ nav a:hover::after {
   align-items: center;
   min-height: 520px;
   position: relative;
-  padding-top: 60px;
 }
 
 /* O círculo orbital principal */
@@ -872,35 +871,35 @@ nav a:hover::after {
   animation: counter-orbit 32s linear infinite;
 }
 
-/* Posições trigonométricas para 6 parceiros (raio 180px, centro 240px x 240px, card 160x155px) */
+/* Posições usando coordenada CENTRAL de cada card (translate -50% -50% aplicado pela animação) */
 .partner-card:nth-child(1) {
-  top: -17px;
-  left: 160px;
+  top: 60px;
+  left: 240px;
 }
 
 .partner-card:nth-child(2) {
-  top: 72px;
-  left: 315px;
+  top: 150px;
+  left: 395px;
 }
 
 .partner-card:nth-child(3) {
-  top: 252px;
-  left: 315px;
+  top: 330px;
+  left: 395px;
 }
 
 .partner-card:nth-child(4) {
-  top: 342px;
-  left: 160px;
+  top: 420px;
+  left: 240px;
 }
 
 .partner-card:nth-child(5) {
-  top: 252px;
-  left: 4px;
+  top: 330px;
+  left: 84px;
 }
 
 .partner-card:nth-child(6) {
-  top: 72px;
-  left: 4px;
+  top: 150px;
+  left: 84px;
 }
 
 .partner-logo-container {
