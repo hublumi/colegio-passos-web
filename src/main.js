@@ -23,6 +23,41 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(element);
   });
 
+  // Animação SVG Entrelaçada por Scroll para Proposta Pedagógica
+  const propostaSection = document.getElementById('proposta');
+  const desktopPath = document.querySelector('.proposta-line.desktop-only path');
+  const mobilePath = document.querySelector('.proposta-line.mobile-only path');
+
+  if (propostaSection) {
+    const updateLines = () => {
+      const rect = propostaSection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      
+      // Começa a desenhar quando o topo da seção estiver 15% visível de baixo para cima
+      const startTrigger = viewportHeight * 0.85;
+      // Termina de desenhar quando o fundo da seção estiver quase saindo da tela pelo topo (85% do scroll da seção)
+      const endTrigger = viewportHeight * 0.15;
+      
+      const totalDistance = (startTrigger - endTrigger) + rect.height;
+      let progress = (startTrigger - rect.top) / totalDistance;
+      
+      progress = Math.min(Math.max(progress, 0), 1);
+      
+      if (desktopPath && window.innerWidth > 768) {
+        // Usa clip-path para desenhar a linha da esquerda (100%) para a direita (0%)
+        desktopPath.parentNode.style.clipPath = `inset(0 ${100 - progress * 100}% 0 0)`;
+      }
+      if (mobilePath && window.innerWidth <= 768) {
+        // Usa clip-path para desenhar a linha de cima (100%) para baixo (0%)
+        mobilePath.parentNode.style.clipPath = `inset(0 0 ${100 - progress * 100}% 0)`;
+      }
+    };
+
+    window.addEventListener('scroll', updateLines, { passive: true });
+    window.addEventListener('resize', updateLines, { passive: true });
+    setTimeout(updateLines, 100); // Initial check
+  }
+
   // Infinite Auto Scroll Carousel para a Grade Escolar (Puro JS equivalente ao componente)
   const gradeGrid = document.querySelector('.grade-grid');
   const prevBtn = document.querySelector('.carousel-btn.prev');

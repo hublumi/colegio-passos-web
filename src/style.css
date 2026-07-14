@@ -106,6 +106,11 @@ p {
   color: var(--white);
 }
 
+#proposta {
+  position: relative;
+  overflow: hidden;
+}
+
 .bg-orange .text-center h2,
 .bg-orange .text-center p {
   color: var(--white) !important;
@@ -250,6 +255,51 @@ nav a:hover::after {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
+}
+
+/* Animated line for Proposta Pedagógica */
+.proposta-grid {
+  position: relative;
+}
+
+/* Prevent fade-in from hiding the grid itself, used only for IntersectionObserver */
+.proposta-grid.fade-in {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.proposta-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.proposta-line path {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.6;
+  /* Animado via JS, o stroke-dasharray será ajustado no main.js */
+}
+
+.proposta-line.desktop-only {
+  display: block;
+}
+
+.proposta-line.mobile-only {
+  display: none;
+}
+
+/* Ensure cards are above the line */
+.proposta-grid .glass-card {
+  z-index: 1;
 }
 
 /* Cards & Differentials */
@@ -416,7 +466,8 @@ nav a:hover::after {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding: 1.5rem 0 0.5rem 0;
+  padding: 1.5rem 24px 0.5rem 24px;
+  scroll-padding: 24px;
   
   /* Esconde a barra de rolagem */
   -ms-overflow-style: none;
@@ -1333,6 +1384,14 @@ textarea.form-control {
   .grid-3 {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  /* ── Animated line for Proposta Pedagógica (Mobile) ── */
+  .proposta-line.desktop-only {
+    display: none;
+  }
+  .proposta-line.mobile-only {
+    display: block;
   }
 
   /* ── Glass cards: less padding on mobile ── */
