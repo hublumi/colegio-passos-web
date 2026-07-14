@@ -842,15 +842,15 @@ nav a:hover::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 480px;
+  min-height: 520px;
   position: relative;
 }
 
 /* O círculo orbital principal */
 .partners-circle {
   position: relative;
-  width: 560px;
-  height: 360px;
+  width: 480px;
+  height: 480px;
   border-radius: 50%;
   border: 2px dashed rgba(255, 255, 255, 0.25);
   animation: orbit 32s linear infinite;
@@ -871,35 +871,35 @@ nav a:hover::after {
   animation: counter-orbit 32s linear infinite;
 }
 
-/* Posições trigonométricas exatas na elipse (Rx=250px, Ry=150px) a partir do centro (280px, 180px) */
+/* Posições trigonométricas exatas para 6 parceiros (raio 200px a partir do centro 240px, 240px) */
 .partner-card:nth-child(1) {
-  top: -45px;
-  left: 175px;
+  top: -40px;
+  left: 135px;
 }
 
 .partner-card:nth-child(2) {
-  top: 30px;
-  left: 392px;
+  top: 60px;
+  left: 308px;
 }
 
 .partner-card:nth-child(3) {
-  top: 180px;
-  left: 392px;
+  top: 260px;
+  left: 308px;
 }
 
 .partner-card:nth-child(4) {
-  top: 255px;
-  left: 175px;
+  top: 360px;
+  left: 135px;
 }
 
 .partner-card:nth-child(5) {
-  top: 180px;
-  left: -42px;
+  top: 260px;
+  left: -38px;
 }
 
 .partner-card:nth-child(6) {
-  top: 30px;
-  left: -42px;
+  top: 60px;
+  left: -38px;
 }
 
 .partner-logo-container {
@@ -993,9 +993,8 @@ nav a:hover::after {
 
 @media (max-width: 540px) {
   .partners-circle {
-    width: 340px;
-    height: 240px;
-    border-radius: 50%;
+    width: 320px;
+    height: 320px;
   }
   
   .partner-card {
@@ -1004,33 +1003,28 @@ nav a:hover::after {
   }
   
   .partner-card:nth-child(1) {
-    top: -30px;
-    left: 95px;
+    top: 40px;
+    left: 160px;
   }
 
   .partner-card:nth-child(2) {
-    top: 18px;
-    left: 216px;
+    top: 123px;
+    left: 274px;
   }
 
   .partner-card:nth-child(3) {
-    top: 112px;
-    left: 216px;
+    top: 257px;
+    left: 230px;
   }
 
   .partner-card:nth-child(4) {
-    top: 160px;
-    left: 95px;
+    top: 257px;
+    left: 90px;
   }
 
   .partner-card:nth-child(5) {
-    top: 113px;
-    left: -26px;
-  }
-
-  .partner-card:nth-child(6) {
-    top: 18px;
-    left: -26px;
+    top: 123px;
+    left: 46px;
   }
 }
 
