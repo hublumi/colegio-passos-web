@@ -364,6 +364,62 @@ nav a:hover::after {
   overflow: hidden;
 }
 
+/* Hero Bubbles */
+.hero-bubble {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(0px);
+}
+
+.hero-bubble.top-left {
+  top: -100px;
+  left: -100px;
+}
+
+.hero-bubble.top-right {
+  top: -100px;
+  right: -100px;
+}
+
+.hero-bubble.bottom-left {
+  bottom: -100px;
+  left: -100px;
+}
+
+.hero-bubble.bottom-right {
+  bottom: -100px;
+  right: -100px;
+}
+
+@media (max-width: 768px) {
+  .hero-bubble {
+    width: 150px;
+    height: 150px;
+  }
+  .hero-bubble.top-left {
+    top: -60px;
+    left: -60px;
+  }
+  .hero-bubble.top-right {
+    top: -60px;
+    right: -60px;
+  }
+  .hero-bubble.bottom-left {
+    bottom: -60px;
+    left: -60px;
+  }
+  .hero-bubble.bottom-right {
+    bottom: -60px;
+    right: -60px;
+  }
+}
+
+
 .hero-seo-title {
   font-size: 0.95rem !important;
   text-transform: uppercase;
