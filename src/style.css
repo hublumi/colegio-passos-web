@@ -859,10 +859,10 @@ nav a:hover::after {
 
 .partner-card {
   position: absolute;
-  width: 210px;
+  width: 160px;
   background: var(--white);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1rem;
   box-shadow: var(--shadow-md);
   color: var(--text-dark);
   text-align: center;
@@ -871,43 +871,43 @@ nav a:hover::after {
   animation: counter-orbit 32s linear infinite;
 }
 
-/* Posições trigonométricas exatas para 6 parceiros (raio 200px a partir do centro 240px, 240px) */
+/* Posições trigonométricas para 6 parceiros (raio 180px, centro 240px x 240px, card 160x155px) */
 .partner-card:nth-child(1) {
-  top: -40px;
-  left: 135px;
+  top: -17px;
+  left: 160px;
 }
 
 .partner-card:nth-child(2) {
-  top: 60px;
-  left: 308px;
+  top: 72px;
+  left: 315px;
 }
 
 .partner-card:nth-child(3) {
-  top: 260px;
-  left: 308px;
+  top: 252px;
+  left: 315px;
 }
 
 .partner-card:nth-child(4) {
-  top: 360px;
-  left: 135px;
+  top: 342px;
+  left: 160px;
 }
 
 .partner-card:nth-child(5) {
-  top: 260px;
-  left: -38px;
+  top: 252px;
+  left: 4px;
 }
 
 .partner-card:nth-child(6) {
-  top: 60px;
-  left: -38px;
+  top: 72px;
+  left: 4px;
 }
 
 .partner-logo-container {
-  height: 50px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .partner-logo-container img {
@@ -918,16 +918,16 @@ nav a:hover::after {
 }
 
 .partner-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
   color: var(--text-dark);
 }
 
 .partner-link {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: var(--text-light);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
@@ -937,7 +937,7 @@ nav a:hover::after {
 .partner-readmore {
   color: var(--secondary-color);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   text-decoration: none;
   display: inline-block;
   transition: transform 0.3s ease;
