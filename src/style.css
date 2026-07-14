@@ -842,8 +842,9 @@ nav a:hover::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 520px;
+  min-height: 560px;
   position: relative;
+  overflow: visible;
 }
 
 /* O círculo orbital principal */
@@ -852,9 +853,10 @@ nav a:hover::after {
   width: 480px;
   height: 480px;
   border-radius: 50%;
-  border: 2px dashed rgba(255, 255, 255, 0.25);
+  border: 2px dashed rgba(255, 255, 255, 0.35);
   animation: orbit 32s linear infinite;
   display: block;
+  overflow: visible;
 }
 
 .partner-card {
@@ -871,35 +873,35 @@ nav a:hover::after {
   animation: counter-orbit 32s linear infinite;
 }
 
-/* Posições usando coordenada CENTRAL de cada card (translate -50% -50% aplicado pela animação) */
+/* Cards centrados SOBRE a linha do círculo (raio 240px = borda do container 480px) */
 .partner-card:nth-child(1) {
-  top: 60px;
+  top: 0px;
   left: 240px;
 }
 
 .partner-card:nth-child(2) {
-  top: 150px;
-  left: 395px;
+  top: 120px;
+  left: 447px;
 }
 
 .partner-card:nth-child(3) {
-  top: 330px;
-  left: 395px;
+  top: 360px;
+  left: 447px;
 }
 
 .partner-card:nth-child(4) {
-  top: 420px;
+  top: 480px;
   left: 240px;
 }
 
 .partner-card:nth-child(5) {
-  top: 330px;
-  left: 84px;
+  top: 360px;
+  left: 32px;
 }
 
 .partner-card:nth-child(6) {
-  top: 150px;
-  left: 84px;
+  top: 119px;
+  left: 32px;
 }
 
 .partner-logo-container {
