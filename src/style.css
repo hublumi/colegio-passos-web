@@ -367,8 +367,8 @@ nav a:hover::after {
 /* Hero Bubbles */
 .hero-bubble {
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 320px;
+  height: 320px;
   background-color: var(--secondary-color);
   border-radius: 50%;
   z-index: 1;
@@ -377,45 +377,45 @@ nav a:hover::after {
 }
 
 .hero-bubble.top-left {
-  top: -100px;
-  left: -100px;
+  top: -220px;
+  left: -220px;
 }
 
 .hero-bubble.top-right {
-  top: -100px;
-  right: -100px;
+  top: -220px;
+  right: -220px;
 }
 
 .hero-bubble.bottom-left {
-  bottom: -100px;
-  left: -100px;
+  bottom: -220px;
+  left: -220px;
 }
 
 .hero-bubble.bottom-right {
-  bottom: -100px;
-  right: -100px;
+  bottom: -220px;
+  right: -220px;
 }
 
 @media (max-width: 768px) {
   .hero-bubble {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
   .hero-bubble.top-left {
-    top: -60px;
-    left: -60px;
+    top: -140px;
+    left: -140px;
   }
   .hero-bubble.top-right {
-    top: -60px;
-    right: -60px;
+    top: -140px;
+    right: -140px;
   }
   .hero-bubble.bottom-left {
-    bottom: -60px;
-    left: -60px;
+    bottom: -140px;
+    left: -140px;
   }
   .hero-bubble.bottom-right {
-    bottom: -60px;
-    right: -60px;
+    bottom: -140px;
+    right: -140px;
   }
 }
 
