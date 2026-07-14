@@ -1568,3 +1568,14 @@ textarea.form-control {
     display: none;
   }
 }
+
+/* ── Two Columns Extracurricular List ── */
+.grade-card ul.two-columns-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem 0.5rem;
+}
+.grade-card ul.two-columns-list li.full-width {
+  grid-column: span 2;
+}
+
