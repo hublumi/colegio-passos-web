@@ -844,6 +844,7 @@ nav a:hover::after {
   align-items: center;
   min-height: 520px;
   position: relative;
+  padding-top: 60px;
 }
 
 /* O círculo orbital principal */
