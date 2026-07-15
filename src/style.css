@@ -993,40 +993,71 @@ nav a:hover::after {
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 768px) {
+  /* No mobile, abandona o layout orbital e usa grid limpo */
+  .partners-circle-wrapper {
+    min-height: auto;
+    overflow: visible;
+    padding: 0;
+    margin-top: 0;
+  }
+
   .partners-circle {
-    width: 320px;
-    height: 320px;
+    position: static;
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    animation: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+    padding: 0;
   }
-  
+
   .partner-card {
-    width: 150px;
+    position: static;
+    width: 100%;
+    transform: none !important;
+    animation: none;
     padding: 1rem;
-  }
-  
-  .partner-card:nth-child(1) {
-    top: 40px;
-    left: 160px;
-  }
-
-  .partner-card:nth-child(2) {
-    top: 123px;
-    left: 274px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  .partner-card:nth-child(3) {
-    top: 257px;
-    left: 230px;
+  .partner-card:nth-child(1),
+  .partner-card:nth-child(2),
+  .partner-card:nth-child(3),
+  .partner-card:nth-child(4),
+  .partner-card:nth-child(5),
+  .partner-card:nth-child(6) {
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
   }
 
-  .partner-card:nth-child(4) {
-    top: 257px;
-    left: 90px;
+  .partner-logo-container {
+    height: 40px;
+    margin-bottom: 0.5rem;
   }
 
-  .partner-card:nth-child(5) {
-    top: 123px;
-    left: 46px;
+  .partner-card h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .partner-link {
+    font-size: 0.65rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .partner-readmore {
+    font-size: 0.75rem;
   }
 }
 
