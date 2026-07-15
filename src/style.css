@@ -524,6 +524,8 @@ nav a:hover::after {
   -webkit-overflow-scrolling: touch;
   padding: 1.5rem 24px 0.5rem 24px;
   scroll-padding: 24px;
+  /* Permite scroll vertical da página enquanto o carousel captura só o horizontal */
+  touch-action: pan-y;
   
   /* Esconde a barra de rolagem */
   -ms-overflow-style: none;
