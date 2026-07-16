@@ -1675,3 +1675,106 @@ textarea.form-control {
   grid-column: span 2;
 }
 
+/* ── GEO: Direct Answer Statement (legível por crawlers, visualmente discreto) ── */
+.hero-geo-statement {
+  font-size: 0.01px;
+  color: transparent;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* ── FAQ Accordion ── */
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease;
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.faq-item.open {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px oklch(0.52 0.16 242 / 0.1);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: var(--primary-color);
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  color: var(--secondary-color);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.open .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer p {
+  overflow: hidden;
+  padding: 0 1.5rem 1.25rem;
+  margin: 0;
+  color: var(--text-body);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.faq-answer strong {
+  color: var(--text-dark);
+}
+
+@media (max-width: 640px) {
+  .faq-question {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  .faq-answer p {
+    padding: 0 1.25rem 1rem;
+  }
+}
