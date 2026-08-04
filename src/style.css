@@ -1688,8 +1688,18 @@ textarea.form-control {
 }
 
 /* ── FAQ Accordion ── */
+#faq {
+  background: linear-gradient(to bottom, transparent, oklch(0.97 0.01 240 / 0.4) 30%, oklch(0.97 0.01 240 / 0.4) 70%, transparent);
+}
+
+#faq-title {
+  background: linear-gradient(to right, var(--text-dark), oklch(0.3 0.02 240), var(--text-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .faq-list {
-  max-width: 780px;
+  max-width: 680px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1697,20 +1707,22 @@ textarea.form-control {
 }
 
 .faq-item {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 12px;
   overflow: hidden;
-  transition: box-shadow 0.25s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .faq-item:hover {
-  box-shadow: var(--shadow-md);
+  background: rgba(0, 0, 0, 0.02);
+  box-shadow: none;
 }
 
 .faq-item.open {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px oklch(0.52 0.16 242 / 0.1);
+  background: linear-gradient(to bottom right, #ffffff, rgba(0, 0, 0, 0.02), #ffffff);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
 .faq-question {
@@ -1726,14 +1738,18 @@ textarea.form-control {
   text-align: left;
   font-family: var(--font-family);
   font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-dark);
+  font-weight: 500;
+  color: var(--text-muted);
   line-height: 1.5;
   transition: color 0.2s ease;
 }
 
 .faq-question:hover {
-  color: var(--primary-color);
+  color: var(--text-dark);
+}
+
+.faq-item.open .faq-question {
+  color: var(--text-dark);
 }
 
 .faq-icon {
@@ -1749,11 +1765,16 @@ textarea.form-control {
 .faq-answer {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1), max-height 0.3s ease, opacity 0.2s ease;
 }
 
 .faq-item.open .faq-answer {
   grid-template-rows: 1fr;
+  max-height: 500px;
+  opacity: 1;
 }
 
 .faq-answer p {

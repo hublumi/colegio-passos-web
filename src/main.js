@@ -345,19 +345,177 @@ document.addEventListener('DOMContentLoaded', () => {
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const btn = item.querySelector('.faq-question');
-    if (!btn) return;
+    const answer = item.querySelector('.faq-answer');
+    if (!btn || !answer) return;
+
+    // Garante que iniciem recolhidas via JavaScript (imunidade a cache de CSS antigo)
+    answer.style.overflow = 'hidden';
+    answer.style.maxHeight = '0px';
+    answer.style.opacity = '0';
+
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
       // Close all
       faqItems.forEach(i => {
         i.classList.remove('open');
         i.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+        const ans = i.querySelector('.faq-answer');
+        if (ans) {
+          ans.style.maxHeight = '0px';
+          ans.style.opacity = '0';
+        }
       });
       // Toggle clicked
       if (!isOpen) {
         item.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = '500px';
+        answer.style.opacity = '1';
       }
     });
   });
+
+  // ── Formulário de Contato e Integração Supabase ──
+  const contactForm = document.getElementById('public-contact-form');
+  const formFeedback = document.getElementById('form-feedback');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('lead_name').value;
+      const phone = document.getElementById('lead_phone').value;
+      const email = document.getElementById('lead_email').value;
+      const segment = document.getElementById('lead_segment').value;
+      const message = document.getElementById('lead_message').value;
+
+      if (formFeedback) {
+        formFeedback.style.display = 'block';
+        formFeedback.style.color = 'var(--text-body)';
+        formFeedback.textContent = 'Enviando sua mensagem...';
+      }
+
+      const supabaseUrl = 'https://gteomtbdgqppuwozcvnw.supabase.co';
+      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0ZW9tdGJkZ3FwcHV3b3pjdm53Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwOTE1NjUsImV4cCI6MjA5OTY2NzU2NX0.HOYbrd4fPQnUdpTUEjDLc4EmIvqKl8QwHK7I1liQ1aw';
+
+      try {
+        const response = await fetch(`${supabaseUrl}/rest/v1/leads`, {
+          method: 'POST',
+          headers: {
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            name,
+            phone,
+            email,
+            segment,
+            message,
+            status: 'novo',
+            contacted: false
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Falha no envio dos dados');
+        }
+
+        if (formFeedback) {
+          formFeedback.style.color = '#10b981';
+          formFeedback.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+        }
+        contactForm.reset();
+      } catch (err) {
+        console.error(err);
+        if (formFeedback) {
+          formFeedback.style.color = '#ef4444';
+          formFeedback.textContent = 'Ocorreu um erro ao enviar. Por favor, tente novamente.';
+        }
+      }
+    });
+  }
+
+  // ── Dynamic Blog Loader and Toggle ────────────────────────────────────────
+  const blogGrid = document.getElementById('blog-grid');
+  const showAllContainer = document.getElementById('blog-show-all-container');
+  const btnShowAll = document.getElementById('btn-show-all-blogs');
+
+  if (blogGrid) {
+    const supabaseUrl = 'https://gteomtbdgqppuwozcvnw.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0ZW9tdGJkZ3FwcHV3b3pjdm53Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwOTE1NjUsImV4cCI6MjA5OTY2NzU2NX0.HOYbrd4fPQnUdpTUEjDLc4EmIvqKl8QwHK7I1liQ1aw';
+
+    async function loadBlogsFromDatabase() {
+      try {
+        const response = await fetch(`${supabaseUrl}/rest/v1/blog_posts?order=created_at.desc&select=*`, {
+          headers: {
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`
+          }
+        });
+
+        if (!response.ok) throw new Error('Falha ao buscar posts do blog');
+
+        const posts = await response.json();
+        if (posts.length > 0) {
+          blogGrid.innerHTML = ''; // Limpa cards estáticos fallback
+          
+          posts.forEach((post, index) => {
+            const card = document.createElement('article');
+            card.className = 'blog-card';
+            card.style.display = index >= 3 ? 'none' : 'block';
+            card.setAttribute('data-index', index);
+
+            // Determina URL
+            let linkUrl = `blog-post.html?slug=${post.slug}`;
+            if (post.slug === 'blog-leitura' || post.slug === 'a-importancia-da-leitura-na-infancia') {
+              linkUrl = 'blog-leitura.html';
+            } else if (post.slug === 'blog-telas' || post.slug === 'o-limite-das-telas-no-cotidiano-escolar') {
+              linkUrl = 'blog-telas.html';
+            } else if (post.slug === 'blog-protagonismo' || post.slug === 'protagonismo-infantil-na-educacao') {
+              linkUrl = 'blog-protagonismo.html';
+            }
+
+            const dateStr = post.created_at ? new Date(post.created_at).toLocaleDateString('pt-BR', {
+              day: '2-digit',
+              month: 'short',
+              year: 'numeric'
+            }) : '';
+
+            card.innerHTML = `
+              <img src="${post.image || 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80'}" alt="${post.image_alt || post.title}" class="blog-image" />
+              <div class="blog-content">
+                <div class="blog-meta">Por: ${post.author || 'Coordenação Pedagógica'} • ${dateStr}</div>
+                <h3>${post.title}</h3>
+                <p>${post.summary || ''}</p>
+                <a href="${linkUrl}" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">Ler mais &rarr;</a>
+              </div>
+            `;
+            blogGrid.appendChild(card);
+          });
+
+          // Se tiver mais de 3, exibe o botão "Ver todos"
+          if (posts.length > 3 && showAllContainer) {
+            showAllContainer.style.display = 'block';
+          }
+        }
+      } catch (err) {
+        console.warn('Usando posts estáticos do HTML como fallback:', err);
+      }
+    }
+
+    if (btnShowAll) {
+      btnShowAll.addEventListener('click', () => {
+        const hiddenCards = blogGrid.querySelectorAll('article[style*="display: none"]');
+        hiddenCards.forEach(card => {
+          card.style.display = 'block';
+        });
+        showAllContainer.style.display = 'none'; // Esconde o botão após expandir
+      });
+    }
+
+    loadBlogsFromDatabase();
+  }
 });
+

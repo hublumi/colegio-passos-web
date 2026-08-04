@@ -4,54 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Importância da Leitura na Infância: Guia do Colégio Passos — Colégio Passos | Blog</title>
-  <meta name="description" content="A leitura na infância é fundamental para o desenvolvimento. Entenda como o Colégio Passos em Jundiaí estimula esse hábito essencial para o futuro das crianças." />
+  <title id="page-title">Blog — Colégio Passos</title>
+  <meta name="description" id="page-description" content="Leia os artigos e novidades do Colégio Passos." />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="Coordenação Pedagógica — Colégio Passos" />
-  <link rel="canonical" href="https://colegiopassos.com.br/blog-leitura.html" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://colegiopassos.com.br/blog-leitura.html" />
-  <meta property="og:title" content="A Importância da Leitura na Infância: Guia do Colégio Passos — Colégio Passos" />
-  <meta property="og:description" content="Descubra como estimular a leitura na infância promove o desenvolvimento cognitivo, emocional e a alfabetização eficaz no ambiente escolar e familiar." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop" />
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="article:published_time" content="2026-06-10" />
-  <meta property="article:author" content="Coordenação Pedagógica — Colégio Passos" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "A Importância da Leitura na Infância",
-    "description": "Estimular o hábito da leitura desde cedo contribui diretamente para o desenvolvimento cognitivo e emocional das crianças.",
-    "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop",
-    "datePublished": "2026-06-10",
-    "dateModified": "2026-06-10",
-    "author": {
-      "@type": "Person",
-      "name": "Coordenação Pedagógica",
-      "jobTitle": "Coordenadora Pedagógica",
-      "worksFor": {
-        "@type": "EducationalOrganization",
-        "name": "Colégio Passos",
-        "url": "https://colegiopassos.com.br"
-      }
-    },
-    "publisher": {
-      "@type": "EducationalOrganization",
-      "@id": "https://colegiopassos.com.br/#school",
-      "name": "Colégio Passos",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://colegiopassos.com.br/logo_colegio.png"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://colegiopassos.com.br/blog-leitura.html"
-    },
-    "keywords": ["leitura na infância", "Colégio Passos"]
-  }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -61,7 +16,6 @@
   <meta name="google" content="notranslate" />
   <link rel="icon" type="image/png" href="/favicon.png?v=3" />
   <style>
-
     .article-container {
       max-width: 800px;
       margin: 0 auto 60px auto;
@@ -102,6 +56,13 @@
       text-align: justify;
     }
 
+    .article-content h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 2rem 0 1rem 0;
+    }
+
     .article-cta-box {
       background: oklch(0.97 0.02 58);
       border-left: 4px solid var(--secondary-color);
@@ -114,6 +75,13 @@
     .article-cta-box h3 {
       color: var(--text-dark);
       margin-bottom: 1rem;
+    }
+
+    .loading-state {
+      text-align: center;
+      padding: 100px 20px;
+      font-size: 1.2rem;
+      color: var(--text-light);
     }
   </style>
 </head>
@@ -146,50 +114,36 @@
     </div>
   </header>
 
-  <main class="article-container">
-    <article>
+  <main class="article-container" id="article-main">
+    <div class="loading-state" id="loading-spinner">
+      Carregando artigo...
+    </div>
+
+    <article id="article-content-wrapper" style="display: none;">
       <header class="article-header">
-        <span class="article-meta">Por Coordenação Pedagógica • 10 de Junho, 2026</span>
-        <h1 class="article-title">A Importância da Leitura na Infância: Guia do Colégio Passos</h1>
+        <span class="article-meta" id="post-meta"></span>
+        <h1 class="article-title" id="post-title"></h1>
       </header>
 
-      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop"
-        alt="Crianças lendo livros alegremente" class="article-featured-image" width="1200" height="800" style="width: 100%; height: auto;" fetchpriority="high" />
+      <img id="post-image" src="" alt="" class="article-featured-image" width="1200" height="800" style="width: 100%; height: auto;" fetchpriority="high" />
 
-      <div class="article-content">
-        <h2 class="text-xl font-bold mt-6 mb-3 text-on-surface">O Poder da Leitura na Infância</h2>
-        <p>A leitura é uma das ferramentas mais poderosas para o desenvolvimento cognitivo e emocional dos seres humanos, especialmente nas fases iniciais da vida. A <strong>leitura na infância</strong>, quando o cérebro das crianças está em constante expansão e formação de conexões neurais, atua como um combustível indispensável para o aprendizado futuro.</p>
-        <p>Ao folhear um livro, ouvir uma história ou tentar decifrar letras, a criança engaja múltiplos sentidos. Essa experiência ativa áreas cerebrais associadas à percepção visual e ao processamento auditivo, formando as bases do raciocínio lógico.</p>
-        <h2 class="text-xl font-bold mt-6 mb-3 text-on-surface">Benefícios Cognitivos e Linguísticos</h2>
-        <p>Além dos benefícios cognitivos, a leitura precoce estimula significativamente o vocabulário. Crianças expostas a livros constantemente entram na fase de alfabetização com um repertório muito mais amplo. Esse domínio lexical reflete-se na facilidade de comunicação, reduzindo frustrações na primeira infância.</p>
-        <h2 class="text-xl font-bold mt-6 mb-3 text-on-surface">Criatividade e Flexibilidade Mental</h2>
-        <p>Diferente dos estímulos digitais, os livros exigem que o pequeno leitor imagine cenários e personagens. Essa projeção fortalece a imaginação criadora e exercita a flexibilidade mental, uma competência essencial para solucionar problemas na vida adulta.</p>
-        <h2 class="text-xl font-bold mt-6 mb-3 text-on-surface">Desenvolvimento da Empatia e Inteligência Socioemocional</h2>
-        <p>No aspecto socioemocional, a literatura desenvolve a empatia. Através das histórias, as crianças entram em contato com realidades diversas, sentindo as alegrias e desafios dos personagens. Esse aprendizado ético permite interações mais harmoniosas no círculo familiar e escolar.</p>
-        <h2 class="text-xl font-bold mt-6 mb-3 text-on-surface">Criando um Ambiente Leitor em Casa</h2>
-        <p>A leitura compartilhada funciona como um espaço de conexão afetiva. Quando pais e professores dedicam momentos do dia para ler, constrói-se uma associação positiva de segurança. Para incentivar esse hábito, é fundamental manter livros ao alcance das mãos e, acima de tudo, servir como exemplo através da própria prática leitora.</p>
-        <h2 class="text-xl font-bold mt-6 mb-3 text-on-surface">A Proposta Pedagógica do Colégio Passos</h2>
-        <p>No Colégio Passos, em Jundiaí, entendemos que a <strong>leitura na infância</strong> é a espinha dorsal de uma educação humanizada. Nossa proposta de ensino integra projetos literários permanentes e espaços dedicados aos livros, proporcionando aos alunos as ferramentas necessárias para desbravar o mundo com criatividade e senso crítico.</p>
-        <p>Investir na leitura é investir no futuro do seu filho. Convidamos as famílias a participarem ativamente dessa jornada literária junto conosco.</p>
-      </div>
+      <div class="article-content" id="post-body"></div>
 
       <div class="article-cta-box">
-        <h3>Forme um leitor forte no Colégio Passos</h3>
-        <p>Quer saber mais sobre nossa abordagem de incentivo à leitura e desenvolvimento socioemocional? Agende uma
-          visita guiada no Colégio Passos e conheça nossa estrutura e educadores qualificados.</p>
-        <a href="https://api.whatsapp.com/send/?phone=5511974685979&text&type=phone_number&app_absent=0" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Falar
-          Conosco no WhatsApp</a>
+        <h3>Quer conhecer o Colégio Passos?</h3>
+        <p>Agende uma visita guiada em nossa escola e converse com nossa coordenação sobre o futuro escolar do seu filho.</p>
+        <a href="https://api.whatsapp.com/send/?phone=5511974685979&text&type=phone_number&app_absent=0" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Falar Conosco no WhatsApp</a>
       </div>
     </article>
   </main>
 
-  <!-- Footer 7 Theme -->
+  <!-- Footer -->
   <footer class="footer-7">
     <div class="container">
       <div class="footer-7-top">
         <div class="footer-7-brand">
           <div class="footer-7-brand-logo">
-            <img src="/logo_colegio.png" alt="Logo Colégio Passos" loading="lazy" width="172" height="55" style="height: 55px; width: auto;">
+            <img src="/logo_colegio.png?v=2" alt="Logo Colégio Passos" loading="lazy" width="172" height="55" style="height: 55px; width: auto;">
             <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0;">Colégio Passos</h2>
           </div>
           <p style="margin-bottom: 1.5rem;">Formando cidadãos protagonistas para o futuro com excelência e cuidado humano.</p>
@@ -260,7 +214,95 @@
     </div>
   </footer>
 
-  <script type="module" src="/src/main.js"></script>
+  <script>
+    // Configurações do Supabase
+    const supabaseUrl = 'https://gteomtbdgqppuwozcvnw.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0ZW9tdGJkZ3FwcHV3b3pjdm53Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwOTE1NjUsImV4cCI6MjA5OTY2NzU2NX0.HOYbrd4fPQnUdpTUEjDLc4EmIvqKl8QwHK7I1liQ1aw';
+
+    function parseMarkdown(text) {
+      if (!text) return '';
+      // Substitui negritos
+      let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      // Substitui itálicos
+      html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      // Divide por quebras de linha e trata subtítulos
+      return html.split('\n\n').map(p => {
+        const trimmed = p.trim();
+        if (trimmed.startsWith('<strong>') && trimmed.endsWith('</strong>')) {
+          // Converte linhas que possuem apenas negrito em subtítulo h3
+          return `<h3>${trimmed.replace(/<\/?strong>/g, '')}</h3>`;
+        }
+        return `<p>${trimmed.replace(/\n/g, '<br>')}</p>`;
+      }).join('');
+    }
+
+    async function loadPost() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+
+      if (!slug) {
+        document.getElementById('loading-spinner').innerHTML = 'Artigo não encontrado.<br><br><a href="/" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Voltar para a Home</a>';
+        return;
+      }
+
+      try {
+        const response = await fetch(`${supabaseUrl}/rest/v1/blog_posts?slug=eq.${slug}&select=*`, {
+          headers: {
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`
+          }
+        });
+
+        if (!response.ok) throw new Error('Erro ao carregar do banco.');
+
+        const posts = await response.json();
+        if (posts.length === 0) {
+          document.getElementById('loading-spinner').innerHTML = 'Artigo não encontrado.<br><br><a href="/" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Voltar para a Home</a>';
+          return;
+        }
+
+        const post = posts[0];
+
+        // Populando dados
+        document.getElementById('page-title').textContent = `${post.title} — Colégio Passos | Blog`;
+        if (post.meta_description) {
+          document.getElementById('page-description').setAttribute('content', post.meta_description);
+        }
+
+        const dateStr = post.created_at ? new Date(post.created_at).toLocaleDateString('pt-BR', {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric'
+        }) : 'Recentemente';
+
+        document.getElementById('post-meta').textContent = `Por ${post.author || 'Coordenação Pedagógica'} • ${dateStr} • ${post.readtime || '5 min'}`;
+        document.getElementById('post-title').textContent = post.title;
+        
+        const postImg = document.getElementById('post-image');
+        postImg.src = post.image || 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80';
+        postImg.alt = post.image_alt || post.title;
+
+        document.getElementById('post-body').innerHTML = parseMarkdown(post.content);
+
+        // Exibindo conteúdo
+        const spinner = document.getElementById('loading-spinner');
+        if (spinner) spinner.style.display = 'none';
+        
+        const wrapper = document.getElementById('article-content-wrapper');
+        if (wrapper) wrapper.style.display = 'block';
+      } catch (err) {
+        console.error(err);
+        const spinner = document.getElementById('loading-spinner');
+        if (spinner) {
+          spinner.innerHTML = 'Erro ao carregar o artigo. Tente novamente mais tarde.<br><br><span style="font-size: 0.8rem; color: #ef4444;">Erro: ' + err.message + '</span>';
+        }
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadPost();
+    });
+  </script>
 </body>
 
 </html>
