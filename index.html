@@ -1,16 +1,26 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <!-- Preconnect para fontes: elimina latência de DNS+TLS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts via link (não @import) para não bloquear renderização -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" /></noscript>
+    <!-- DNS Prefetch para recursos externos -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://gteomtbdgqppuwozcvnw.supabase.co" />
+    <link rel="dns-prefetch" href="https://maps.google.com" />
+    <!-- Preload do poster do vídeo hero (LCP candidate) -->
+    <link rel="preload" href="/hero_bg.jpg" as="image" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- =============================================
        PRIMARY SEO — E-E-A-T + GEO (AI Overviews)
   ============================================= -->
-  <title>Colégio Particular em Jundiaí — Educação Infantil e Fundamental | Colégio Passos</title>
-  <meta name="description" content="O Colégio Passos é uma escola particular em Jundiaí (SP), bairro Vila Lacerda, com Educação Infantil e Ensino Fundamental. Proposta pedagógica humanizada, protagonismo do aluno, Inglês, Espanhol e atividades extracurriculares. Matricule-se!" />
+  <title>Colégio Particular em Jundiaí | Infantil e Fundamental</title>
+  <meta name="description" content="Colégio particular em Jundiaí com Educação Infantil e Fundamental. Proposta humanizada, protagonismo do aluno e período integral. Agende visita!" />
   <meta name="keywords" content="colégio particular Jundiaí, escola particular Jundiaí, escola infantil Jundiaí, ensino fundamental Jundiaí, colégio Vila Lacerda, escola com inglês Jundiaí, matrícula escola Jundiaí, educação infantil Jundiaí, colégio Passos" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="Colégio Passos" />
@@ -29,8 +39,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Colégio Passos" />
   <meta property="og:url" content="https://colegiopassos.com.br/" />
-  <meta property="og:title" content="Colégio Passos — Escola Particular em Jundiaí (SP)" />
-  <meta property="og:description" content="Escola particular em Jundiaí com Educação Infantil e Ensino Fundamental. Proposta pedagógica humanizada, protagonismo do aluno, Inglês e Espanhol. Agende uma visita!" />
+  <meta property="og:title" content="Colégio Particular em Jundiaí | Infantil e Fundamental" />
+  <meta property="og:description" content="Colégio particular em Jundiaí com Educação Infantil e Fundamental. Proposta humanizada, protagonismo do aluno e período integral. Agende visita!" />
   <meta property="og:image" content="https://colegiopassos.com.br/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -42,8 +52,8 @@
   ============================================= -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://colegiopassos.com.br/" />
-  <meta name="twitter:title" content="Colégio Passos — Escola Particular em Jundiaí (SP)" />
-  <meta name="twitter:description" content="Escola particular em Jundiaí com Educação Infantil e Ensino Fundamental. Proposta humanizada, protagonismo do aluno e atividades extracurriculares." />
+  <meta name="twitter:title" content="Colégio Particular em Jundiaí | Infantil e Fundamental" />
+  <meta name="twitter:description" content="Colégio particular em Jundiaí com Educação Infantil e Fundamental. Proposta humanizada, protagonismo do aluno e período integral." />
   <meta name="twitter:image" content="https://colegiopassos.com.br/og-image.jpg" />
 
   <!-- =============================================
@@ -59,16 +69,19 @@
         "@id": "https://colegiopassos.com.br/#school",
         "name": "Colégio Passos",
         "alternateName": "Colegio Passos Jundiaí",
-        "description": "O Colégio Passos é uma escola particular em Jundiaí (SP) que oferece Educação Infantil (Jardim II) e Ensino Fundamental (1º ao 9º ano) com proposta pedagógica humanizada e foco no protagonismo do aluno. Fundada em 2010, a instituição desenvolve competências socioemocionais, Inglês, Espanhol, Música e atividades extracurriculares.",
+        "description": "O Colégio Passos é um colégio particular em Jundiaí (SP) que oferece Educação Infantil (Jardim II) e Ensino Fundamental (1º ao 9º ano) com proposta pedagógica humanizada e foco no protagonismo do aluno. Fundada em 2010 na Vila Lacerda, a instituição desenvolve competências socioemocionais, Inglês, Espanhol, Música e atividades extracurriculares no contraturno.",
         "url": "https://colegiopassos.com.br",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://colegiopassos.com.br/logo_colegio.png",
+          "url": "https://colegiopassos.com.br/logo_colegio.webp",
           "width": 200,
           "height": 64
         },
         "image": "https://colegiopassos.com.br/og-image.jpg",
         "foundingDate": "2010",
+        "priceRange": "$$",
+        "currenciesAccepted": "BRL",
+        "paymentAccepted": "Cash, Credit Card, PIX, Boleto",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "R. Seike Saito, 573",
@@ -82,6 +95,7 @@
           "latitude": -23.1793,
           "longitude": -46.9083
         },
+        "hasMap": "https://maps.google.com/?q=R.+Seike+Saito,+573+-+Vila+Lacerda,+Jundia%C3%AD+-+SP,+13214-077",
         "telephone": "+55-11-4492-2787",
         "contactPoint": [
           {
@@ -101,6 +115,20 @@
         "email": "contato@colegiopassos.com.br",
         "sameAs": [
           "https://www.instagram.com/colegio.passos/"
+        ],
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Jundiaí"
+          },
+          {
+            "@type": "City",
+            "name": "Várzea Paulista"
+          },
+          {
+            "@type": "City",
+            "name": "Campo Limpo Paulista"
+          }
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -128,11 +156,11 @@
         },
         "knowsAbout": [
           "Protagonismo do aluno",
-          "Ensino construtivista",
+          "Ensino construtivista humanizado",
           "Desenvolvimento socioemocional",
-          "Educação bilíngue",
+          "Educação bilíngue e línguas adicionais",
           "Simulados bimestrais",
-          "Atividades extracurriculares"
+          "Atividades extracurriculares no contraturno"
         ]
       },
       {
@@ -140,7 +168,7 @@
         "@id": "https://colegiopassos.com.br/#website",
         "url": "https://colegiopassos.com.br",
         "name": "Colégio Passos",
-        "description": "Site oficial do Colégio Passos — escola particular em Jundiaí (SP)",
+        "description": "Site oficial do Colégio Passos — colégio particular em Jundiaí (SP)",
         "inLanguage": "pt-BR",
         "publisher": {"@id": "https://colegiopassos.com.br/#school"}
       },
@@ -158,15 +186,15 @@
           },
           {
             "@type": "Question",
-            "name": "O Colégio Passos oferece período integral?",
+            "name": "O Colégio Passos oferece período integral ou atividades no contraturno?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "O Colégio Passos funciona de segunda a sexta-feira, das 07h00 às 18h00, com atividades extracurriculares no contraturno, como Violão, Ukulele, Futebol, Vôlei, Dança, Taekwondo, Xadrez e Bases Matemáticas. Entre em contato pelo WhatsApp (11) 97468-5979 para saber mais sobre os horários disponíveis."
+              "text": "O Colégio Passos funciona de segunda a sexta-feira, das 07h00 às 18h00, com atividades extracurriculares no contraturno, como Violão, Ukulele, Futebol, Vôlei, Dança, Taekwondo, Xadrez e Bases Matemáticas, além do Super Cérebro. Entre em contato pelo WhatsApp (11) 97468-5979 para saber mais."
             }
           },
           {
             "@type": "Question",
-            "name": "Qual é a proposta pedagógica do Colégio Passos?",
+            "name": "Qual é a proposta pedagógica do Colégio Passos em Jundiaí?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "O Colégio Passos adota uma proposta pedagógica humanizada com foco no protagonismo do aluno, onde o estudante é o sujeito ativo do seu aprendizado. A escola desenvolve competências socioemocionais, autoconhecimento, empatia e valores humanos, além de oferecer Inglês, Espanhol, Música e Filosofia desde a Educação Infantil."
@@ -177,7 +205,7 @@
             "name": "Como faço para matricular meu filho no Colégio Passos em Jundiaí?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Para matricular seu filho no Colégio Passos, você pode entrar em contato pelo WhatsApp (11) 97468-5979 ou pelo telefone fixo (11) 4492-2787 para agendar uma visita presencial. O colégio está localizado na R. Seike Saito, 573, Vila Lacerda, Jundiaí — SP, CEP 13214-077."
+              "text": "Para matricular seu filho no Colégio Passos, entre em contato pelo WhatsApp (11) 97468-5979 ou telefone fixo (11) 4492-2787 para agendar uma visita presencial. O colégio está localizado na R. Seike Saito, 573, Vila Lacerda, Jundiaí — SP, CEP 13214-077."
             }
           },
           {
@@ -186,6 +214,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Sim. O Colégio Passos oferece uma grade completa de atividades extracurriculares: Violão, Ukulele, Futebol, Vôlei, Dança, Taekwondo, Bases Matemáticas, Xadrez e Parceria com o Super Cérebro. Essas atividades complementam o desenvolvimento integral dos alunos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O Colégio Passos prepara os alunos para o ENEM e vestibulares?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. A partir do 4º ano, os alunos realizam simulados bimestrais que introduzem gradualmente os formatos de provas que encontrarão ao longo da vida escolar, tornando esses modelos familiares e criando uma base sólida para o futuro acadêmico."
             }
           }
         ]
@@ -201,7 +237,9 @@
     <header>
       <div class="container">
         <div class="logo">
-          <a href="/termos.html"><img src="/logo_colegio.png?v=2" alt="Logo Colégio Passos" width="200" height="64" style="height: 64px; width: auto;" fetchpriority="high"></a>
+          <a href="/">
+            <img src="/logo_colegio.webp?v=2" alt="Logo Colégio Passos — Colégio Particular em Jundiaí" width="200" height="64" style="height: 64px; width: auto;" fetchpriority="high" />
+          </a>
         </div>
         <nav>
           <button class="mobile-menu-toggle" aria-label="Abrir menu de navegação">
@@ -239,12 +277,12 @@
         </svg>
         <div class="container grid-2" style="position: relative; z-index: 2;">
           <div class="hero-content f-pattern-text fade-in">
-            <!-- H1 otimizado para SEO, visualmente pequeno -->
-            <h1 class="hero-seo-title">Colégio em Jundiaí — Educação Infantil e Ensino Fundamental</h1>
+            <!-- H1 otimizado para SEO com a Tríade Exact Match -->
+            <h1 class="hero-seo-title">Colégio Particular em Jundiaí — Educação Infantil e Fundamental</h1>
             <!-- GEO: Resposta Direta para IAs (ChatGPT, Perplexity, Google AI Overviews) -->
             <!-- Visualmente oculto, semanticamente rico -->
             <p class="hero-geo-statement" aria-hidden="false">
-              O Colégio Passos é uma escola particular em Jundiaí (SP), localizada no bairro Vila Lacerda, fundada em 2010. A instituição oferece Educação Infantil (Jardim II) e Ensino Fundamental completo (1º ao 9º ano), com proposta pedagógica humanizada centrada no protagonismo do aluno, ensino de Inglês desde a Educação Infantil, Espanhol, Música, Filosofia e Projeto Socioemocional.
+              O Colégio Passos é um colégio particular em Jundiaí (SP), localizado no bairro Vila Lacerda, fundado em 2010. A instituição oferece Educação Infantil (Jardim II) e Ensino Fundamental completo (1º ao 9º ano), com proposta pedagógica humanizada centrada no protagonismo do aluno, ensino de Inglês desde a Educação Infantil, Espanhol, Música, Filosofia e Projeto Socioemocional.
             </p>
             <!-- H2 visível principal -->
             <h2 class="hero-main-title">Colégio Passos</h2>
@@ -257,15 +295,16 @@
           <div class="hero-img fade-in">
             <video
               class="hero-image hero-video"
-              src="/hero_video.mp4"
               poster="/hero_bg.jpg"
               autoplay
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="none"
               aria-label="Vídeo das instalações e alunos do Colégio Passos"
-            ></video>
+            >
+              <source src="/hero_video.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </section>
@@ -274,7 +313,7 @@
       <section class="section bg-surface" id="historia">
         <div class="container grid-2">
           <div class="about-img fade-in">
-            <img src="/historia_colegio.jpg" alt="Alunos do Colégio Passos em Jundiaí" class="hero-image" loading="lazy" width="600" height="400" />
+            <img src="/historia_colegio.webp" alt="Alunos do Colégio Particular em Jundiaí — Colégio Passos" class="hero-image" loading="lazy" width="600" height="600" style="aspect-ratio:1/1;object-fit:cover;object-position:center top;border-radius:1.5rem;" />
           </div>
           <div class="about-content f-pattern-text fade-in">
             <h2>A Origem - Nossa História</h2>
@@ -453,7 +492,7 @@
             <div class="partners-circle">
               <div class="partner-card">
                 <div class="partner-logo-container">
-                  <img src="/isaac.png" alt="Logo isaac" loading="lazy" width="120" height="36" />
+                  <img src="/isaac.webp" alt="Logo isaac — Parceiro Colégio Passos" loading="lazy" width="120" height="36" />
                 </div>
                 <h3>isaac</h3>
                 <a href="https://isaac.com.br" target="_blank" class="partner-link">isaac.com.br</a>
@@ -462,7 +501,7 @@
 
               <div class="partner-card">
                 <div class="partner-logo-container">
-                  <img src="/super_cerebro.png" alt="Logo Super Cérebro" loading="lazy" width="120" height="36" />
+                  <img src="/super_cerebro.webp" alt="Logo Super Cérebro — Parceiro Colégio Passos" loading="lazy" width="120" height="36" />
                 </div>
                 <h3>Super Cérebro</h3>
                 <a href="https://supercerebro.com.br" target="_blank" class="partner-link">supercerebro.com.br</a>
@@ -471,7 +510,7 @@
 
               <div class="partner-card">
                 <div class="partner-logo-container">
-                  <img src="/classapp.png" alt="Logo ClassApp" loading="lazy" width="120" height="36" />
+                  <img src="/classapp.webp" alt="Logo ClassApp — Parceiro Colégio Passos" loading="lazy" width="120" height="36" />
                 </div>
                 <h3>ClassApp</h3>
                 <a href="https://classapp.com.br" target="_blank" class="partner-link">classapp.com.br</a>
@@ -480,7 +519,7 @@
               
               <div class="partner-card">
                 <div class="partner-logo-container">
-                  <img src="/sae_digital.png" alt="Logo SAE Digital" loading="lazy" width="120" height="36" />
+                  <img src="/sae_digital.webp" alt="Logo SAE Digital — Parceiro Colégio Passos" loading="lazy" width="120" height="36" />
                 </div>
                 <h3>SAE digital</h3>
                 <a href="https://sae.digital" target="_blank" class="partner-link">sae.digital</a>
@@ -489,7 +528,7 @@
 
               <div class="partner-card">
                 <div class="partner-logo-container">
-                  <img src="/opee.jpg" alt="Logo OPEE" loading="lazy" width="120" height="36" />
+                  <img src="/opee.webp" alt="Logo OPEE — Metodologia Projeto de Vida Colégio Passos" loading="lazy" width="120" height="36" />
                 </div>
                 <h3>OPEE</h3>
                 <a href="https://metodologia.opee.com.br" target="_blank" class="partner-link">metodologia.opee.com.br</a>
@@ -498,7 +537,7 @@
 
               <div class="partner-card">
                 <div class="partner-logo-container">
-                  <img src="/arvore_positivo.png" alt="Logo Árvore" loading="lazy" width="120" height="36" />
+                  <img src="/arvore_positivo.webp" alt="Logo Árvore — Plataforma de Leitura Colégio Passos" loading="lazy" width="120" height="36" />
                 </div>
                 <h3>Árvore</h3>
                 <a href="https://arvore.com.br" target="_blank" class="partner-link">arvore.com.br</a>
@@ -735,6 +774,56 @@
               </div>
             </div>
 
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-6">
+                <span itemprop="name">Qual é a diferença entre o Colégio Passos e outras escolas particulares em Jundiaí?</span>
+                <svg class="faq-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer" id="faq-6" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">O Colégio Passos se diferencia por combinar <strong>excelência acadêmica com desenvolvimento socioemocional</strong> em Jundiaí. Enquanto a maioria das escolas foca apenas em resultados de provas, nós adotamos a <strong>Metodologia OPEE</strong> de protagonismo e o sistema <strong>SAE Digital</strong>, garantindo que cada aluno seja protagonista do seu aprendizado. Com turmas reduzidas, atendimento individualizado e professores especializados desde a Educação Infantil, criamos vínculos que acompanham o aluno ao longo de toda a vida escolar.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-7">
+                <span itemprop="name">O Colégio Passos oferece ensino de inglês e espanhol? Desde qual idade?</span>
+                <svg class="faq-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer" id="faq-7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Sim! O ensino de <strong>Inglês começa no Jardim II</strong> (4-5 anos), com aulas lúdicas e imersivas que respeitam o desenvolvimento natural da criança. O <strong>Espanhol é introduzido no 6º ano</strong> do Ensino Fundamental II. Essa exposição precoce a dois idiomas adicionais potencializa a capacidade linguística dos alunos e prepara para um mundo cada vez mais globalizado, além de ser um diferencial importante dos colégios particulares de Jundiaí.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-8">
+                <span itemprop="name">O Colégio Passos tem serviço de transporte escolar em Jundiaí?</span>
+                <svg class="faq-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer" id="faq-8" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">O Colégio Passos conta com parceiros credenciados de <strong>transporte escolar</strong> que atendem diferentes regiões de Jundiaí, incluindo Vila Lacerda, Centro e bairros adjacentes. Para verificar a disponibilidade de rotas e horários na sua região, entre em contato pelo <strong>WhatsApp (11) 97468-5979</strong>. Nossa equipe indicará o transportador homologado mais próximo da sua residência.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-9">
+                <span itemprop="name">Como o Colégio Passos cuida da saúde mental e bem-estar dos alunos?</span>
+                <svg class="faq-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer" id="faq-9" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">A saúde mental é uma prioridade no Colégio Passos. Desenvolvemos <strong>competências socioemocionais</strong> estruturadas no currículo — autoconhecimento, empatia, resiliência e gestão emocional. Nossos professores são treinados para identificar sinais de <strong>ansiedade escolar, bullying e dificuldades de aprendizagem</strong> precocemente. Mantemos canal aberto com as famílias e parceria com especialistas para suporte quando necessário, pois acreditamos que um aluno emocionalmente saudável aprende melhor.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-10">
+                <span itemprop="name">Quais são os valores e a mensalidade do Colégio Passos em Jundiaí?</span>
+                <svg class="faq-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer" id="faq-10" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Os valores das mensalidades variam conforme a etapa de ensino (Educação Infantil, Fundamental I ou Fundamental II) e a modalidade de horário. Para receber uma <strong>proposta personalizada atualizada</strong> e conhecer as condições de pagamento, bolsas de estudo disponíveis e descontos para irmãos, entre em contato pelo <strong>WhatsApp (11) 97468-5979</strong> ou <strong>agende uma visita presencial</strong> sem compromisso. Nosso investimento está alinhado ao alto padrão de qualidade que oferecemos.</p>
+              </div>
+            </div>
+
           </div>
 
 
@@ -749,8 +838,8 @@
         <div class="footer-7-top">
           <div class="footer-7-brand">
             <div class="footer-7-brand-logo">
-              <img src="/logo_colegio.png?v=2" alt="Logo Colégio Passos" loading="lazy" width="172" height="55" style="height: 55px; width: auto;">
-              <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0;">Colégio Passos</h2>
+              <img src="/logo_colegio.webp?v=2" alt="Logo Colégio Passos — Colégio Particular em Jundiaí" loading="lazy" width="172" height="55" style="height: 55px; width: auto;" />
+              <div class="footer-7-brand-name">Colégio Passos</div>
             </div>
             <p style="margin-bottom: 1.5rem;">Formando cidadãos protagonistas para o futuro com excelência e cuidado humano.</p>
             <ul class="footer-7-social">
