@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+/* Google Fonts carregado via <link> no HTML para não bloquear renderização */
 
 :root {
   /* OKLCH Brand Colors - Tinted to warm brand hue (58) */
@@ -51,6 +51,16 @@ html {
   background-color: var(--bg-color);
   scroll-behavior: smooth;
   line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .fade-in { opacity: 1; transform: none; }
 }
 
 body {
@@ -484,8 +494,12 @@ nav a:hover::after {
 
 .hero-image {
   width: 100%;
-  border-radius: var(--radius-lg);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 1.5rem;
   box-shadow: var(--shadow-lg);
+  display: block;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -793,7 +807,9 @@ nav a:hover::after {
 .blog-image {
   width: 100%;
   height: 200px;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
+  display: block;
 }
 
 .blog-content {
@@ -1799,3 +1815,154 @@ textarea.form-control {
     padding: 0 1.25rem 1rem;
   }
 }
+
+/* ── EEAT & Blog Components ── */
+.author-bio-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin-top: 3rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.author-bio-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--bg-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.author-bio-info h4 {
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.author-bio-role {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.author-bio-info p {
+  font-size: 0.95rem !important;
+  color: var(--text-body);
+  line-height: 1.6 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.author-bio-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.author-bio-social:hover {
+  color: var(--secondary-color);
+}
+
+/* ── Article Tables & Silo Links ── */
+.article-table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.article-table th {
+  background: var(--bg-warm);
+  color: var(--text-dark);
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+.article-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-body);
+}
+
+.article-table tr:last-child td {
+  border-bottom: none;
+}
+
+.article-table tr:nth-child(even) td {
+  background: oklch(0.99 0.005 58);
+}
+
+.silo-box {
+  background: linear-gradient(135deg, oklch(0.98 0.015 58), #ffffff);
+  border: 1px solid oklch(0.92 0.03 58);
+  border-left: 4px solid var(--secondary-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.silo-box h4 {
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.silo-box p {
+  margin-bottom: 1rem !important;
+  font-size: 0.95rem !important;
+}
+
+.silo-link {
+  color: var(--secondary-color);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.silo-link:hover {
+  color: var(--primary-color);
+}
+
+.footer-7-brand-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: var(--text-dark);
+}
+
+@media (max-width: 640px) {
+  .author-bio-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
