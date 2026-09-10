@@ -166,9 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ═══════════════════════════════════════════════════
+  // ═════════════════════════════════════════════════════
   // 3D Cylinder Carousel — Infraestrutura
-  // ═══════════════════════════════════════════════════
+  // ═════════════════════════════════════════════════════
   const cylinder = document.getElementById('carousel3d-cylinder');
   const overlay  = document.getElementById('carousel3d-overlay');
   const overlayImg = document.getElementById('carousel3d-overlay-img');
@@ -484,7 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }) : '';
 
             card.innerHTML = `
-              <img src="${post.image || 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80'}" alt="${post.image_alt || post.title}" class="blog-image" />
+              <img src="${post.image || 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80'}" alt="${post.image_alt || post.title}" class="blog-image" loading="lazy" />
               <div class="blog-content">
                 <div class="blog-meta">Por: ${post.author || 'Coordenação Pedagógica'} • ${dateStr}</div>
                 <h3>${post.title}</h3>

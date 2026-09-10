@@ -4,14 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="page-title">Blog — Colégio Passos</title>
-  <meta name="description" id="page-description" content="Leia os artigos e novidades do Colégio Passos." />
+  <title id="page-title">Blog — Colégio Passos | Jundiaí</title>
+  <meta name="description" id="page-description" content="Leia os artigos, novidades e orientações pedagógicas do Colégio Passos em Jundiaí." />
   <meta name="robots" content="index, follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/style.css" />
   <meta name="google" content="notranslate" />
   <link rel="icon" type="image/png" href="/favicon.png?v=3" />
@@ -19,48 +17,56 @@
     .article-container {
       max-width: 800px;
       margin: 0 auto 60px auto;
-      padding: 220px 20px 0 20px;
+      padding: 160px 20px 0 20px;
     }
 
     .article-header {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     .article-meta {
       font-size: 0.9rem;
       color: var(--text-light);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       display: block;
+      font-weight: 500;
     }
 
     .article-title {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       color: var(--text-dark);
-      line-height: 1.2;
+      line-height: 1.25;
       margin-bottom: 20px;
+      font-family: var(--font-serif);
     }
 
     .article-featured-image {
       width: 100%;
       height: auto;
       border-radius: var(--radius-lg);
-      margin-bottom: 40px;
+      margin-bottom: 35px;
       box-shadow: var(--shadow-md);
     }
 
-    .article-content p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-body);
-      margin-bottom: 1.5rem;
-      text-align: justify;
+    .article-content h2 {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin: 2rem 0 1rem 0;
+      font-family: var(--font-serif);
     }
 
     .article-content h3 {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+      margin: 1.5rem 0 0.75rem 0;
       font-weight: 700;
-      color: var(--text-dark);
-      margin: 2rem 0 1rem 0;
+    }
+
+    .article-content p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 1.25rem;
     }
 
     .article-cta-box {
@@ -74,7 +80,7 @@
 
     .article-cta-box h3 {
       color: var(--text-dark);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .loading-state {
@@ -91,7 +97,7 @@
   <header>
     <div class="container">
       <div class="logo">
-        <a href="/"><img src="/logo_colegio.png?v=2" alt="Logo Colégio Passos" width="200" height="64" style="height: 64px; width: auto;" fetchpriority="high"></a>
+        <a href="/"><img src="/logo_colegio.webp?v=2" alt="Logo Colégio Passos — Colégio Particular em Jundiaí" width="200" height="64" style="height: 64px; width: auto;" fetchpriority="high"></a>
       </div>
       <nav>
         <button class="mobile-menu-toggle" aria-label="Abrir menu de navegação">
@@ -129,9 +135,23 @@
 
       <div class="article-content" id="post-body"></div>
 
+      <!-- Author Bio EEAT Component -->
+      <aside class="author-bio-card" id="post-author-card">
+        <div class="author-bio-avatar" id="author-avatar-text">CP</div>
+        <div class="author-bio-info">
+          <span class="author-bio-role">Autor do Artigo</span>
+          <h4 id="author-name-display">Equipe Pedagógica — Colégio Passos</h4>
+          <p id="author-bio-desc">Educadores dedicados à formação integral de estudantes em Jundiaí (SP), promovendo autonomia, conhecimento humanizado e desenvolvimento socioemocional.</p>
+          <a href="https://www.instagram.com/colegio.passos/" target="_blank" rel="noopener noreferrer" class="author-bio-social">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            Siga o @colegio.passos no Instagram
+          </a>
+        </div>
+      </aside>
+
       <div class="article-cta-box">
-        <h3>Quer conhecer o Colégio Passos?</h3>
-        <p>Agende uma visita guiada em nossa escola e converse com nossa coordenação sobre o futuro escolar do seu filho.</p>
+        <h3>Quer conhecer o Colégio Passos em Jundiaí?</h3>
+        <p>Agende uma visita guiada em nossa escola e converse com nossa coordenação sobre a proposta pedagógica e o futuro escolar do seu filho.</p>
         <a href="https://api.whatsapp.com/send/?phone=5511974685979&text&type=phone_number&app_absent=0" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Falar Conosco no WhatsApp</a>
       </div>
     </article>
@@ -143,8 +163,8 @@
       <div class="footer-7-top">
         <div class="footer-7-brand">
           <div class="footer-7-brand-logo">
-            <img src="/logo_colegio.png?v=2" alt="Logo Colégio Passos" loading="lazy" width="172" height="55" style="height: 55px; width: auto;">
-            <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0;">Colégio Passos</h2>
+            <img src="/logo_colegio.webp?v=2" alt="Logo Colégio Passos — Colégio Particular em Jundiaí" loading="lazy" width="172" height="55" style="height: 55px; width: auto;">
+            <div class="footer-7-brand-name">Colégio Passos</div>
           </div>
           <p style="margin-bottom: 1.5rem;">Formando cidadãos protagonistas para o futuro com excelência e cuidado humano.</p>
           <ul class="footer-7-social">
@@ -221,15 +241,23 @@
 
     function parseMarkdown(text) {
       if (!text) return '';
+      // Substitui títulos markdown h3 e h2
+      let html = text.replace(/^###\s+(.*$)/gim, '<h3>$1</h3>');
+      html = html.replace(/^##\s+(.*$)/gim, '<h2>$1</h2>');
+      html = html.replace(/^#\s+(.*$)/gim, '<h2>$1</h2>');
+      
       // Substitui negritos
-      let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
       // Substitui itálicos
       html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-      // Divide por quebras de linha e trata subtítulos
+      
+      // Divide por quebras de linha e trata parágrafos
       return html.split('\n\n').map(p => {
         const trimmed = p.trim();
+        if (trimmed.startsWith('<h2>') || trimmed.startsWith('<h3>')) {
+          return trimmed;
+        }
         if (trimmed.startsWith('<strong>') && trimmed.endsWith('</strong>')) {
-          // Converte linhas que possuem apenas negrito em subtítulo h3
           return `<h3>${trimmed.replace(/<\/?strong>/g, '')}</h3>`;
         }
         return `<p>${trimmed.replace(/\n/g, '<br>')}</p>`;
@@ -282,7 +310,41 @@
         postImg.src = post.image || 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80';
         postImg.alt = post.image_alt || post.title;
 
+        if (post.author) {
+          document.getElementById('author-name-display').textContent = post.author + ' — Colégio Passos';
+        }
+
         document.getElementById('post-body').innerHTML = parseMarkdown(post.content);
+
+        // Injetando JSON-LD de BlogPosting dinamicamente
+        const scriptLd = document.createElement('script');
+        scriptLd.type = 'application/ld+json';
+        scriptLd.text = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.meta_description || post.summary,
+          "image": post.image,
+          "datePublished": post.created_at,
+          "author": {
+            "@type": "Person",
+            "name": post.author || "Coordenação Pedagógica",
+            "worksFor": {
+              "@type": "EducationalOrganization",
+              "name": "Colégio Passos",
+              "url": "https://colegiopassos.com.br"
+            }
+          },
+          "publisher": {
+            "@type": "EducationalOrganization",
+            "name": "Colégio Passos",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://colegiopassos.com.br/logo_colegio.webp"
+            }
+          }
+        });
+        document.head.appendChild(scriptLd);
 
         // Exibindo conteúdo
         const spinner = document.getElementById('loading-spinner');
