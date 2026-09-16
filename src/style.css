@@ -864,7 +864,7 @@ nav a:hover::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 700px;
+  min-height: 640px;
   position: relative;
   overflow: visible;
   user-select: none;
@@ -873,8 +873,8 @@ nav a:hover::after {
 /* O círculo orbital principal */
 .partners-circle {
   position: relative;
-  width: 640px;
-  height: 640px;
+  width: 560px;
+  height: 560px;
   border-radius: 50%;
   border: 2px dashed rgba(255, 255, 255, 0.4);
   display: block;
