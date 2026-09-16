@@ -370,11 +370,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const circleSize = Math.min(partnersCircle.clientWidth, partnersCircle.clientHeight);
-      const largestCardRadius = Math.max(...[...partnerCards].map(card =>
-        Math.hypot(card.offsetWidth, card.offsetHeight) / 2
-      ));
-      // Mantém toda a área de cada card dentro do anel, inclusive em telas grandes.
-      const radius = Math.max(circleSize * 0.1, (circleSize / 2) - largestCardRadius - 12);
+      // O centro de cada card percorre a própria linha pontilhada: assim a
+      // composição se comporta como uma órbita, e não como cards girando
+      // apenas dentro de um círculo maior.
+      const radius = circleSize / 2;
 
       orbitPositions = [...partnerCards].map((card, index) => {
         const angle = ((index * 360) / partnerCards.length - 90) * (Math.PI / 180);
