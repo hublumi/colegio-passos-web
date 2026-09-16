@@ -341,6 +341,177 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoPlay();
   }
 
+  // ═════════════════════════════════════════════════════
+  // Interactive Orbit — Nossos Parceiros (Desktop & Tablet)
+  // ═════════════════════════════════════════════════════
+  const partnersCircle = document.querySelector('.partners-circle');
+  const partnerCards = document.querySelectorAll('.partner-card');
+
+  if (partnersCircle && partnerCards.length > 0) {
+    let orbitAngle = 0;
+    const baseSpeed = 0.045; // ~0.045 graus por frame (~14s por volta completa a 60fps/144Hz)
+    let isHovered = false;
+    let isDragging = false;
+    let startX = 0;
+    let startAngle = 0;
+    let velocity = 0;
+    let lastTime = performance.now();
+    let resumeTimeout = null;
+    let orbitPositions = [];
+
+    const layoutOrbit = () => {
+      if (window.innerWidth <= 768) {
+        partnerCards.forEach(card => {
+          card.style.left = '';
+          card.style.top = '';
+          card.style.transform = '';
+        });
+        return;
+      }
+
+      const circleSize = Math.min(partnersCircle.clientWidth, partnersCircle.clientHeight);
+      const largestCardRadius = Math.max(...[...partnerCards].map(card =>
+        Math.hypot(card.offsetWidth, card.offsetHeight) / 2
+      ));
+      // Mantém toda a área de cada card dentro do anel, inclusive em telas grandes.
+      const radius = Math.max(circleSize * 0.1, (circleSize / 2) - largestCardRadius - 12);
+
+      orbitPositions = [...partnerCards].map((card, index) => {
+        const angle = ((index * 360) / partnerCards.length - 90) * (Math.PI / 180);
+        card.style.left = '50%';
+        card.style.top = '50%';
+        return {
+          x: Math.cos(angle) * radius,
+          y: Math.sin(angle) * radius,
+        };
+      });
+    };
+
+    const setOrbitAngle = (deg) => {
+      if (window.innerWidth <= 768) {
+        partnersCircle.style.transform = '';
+        partnerCards.forEach(card => card.style.transform = '');
+        return;
+      }
+      partnersCircle.style.transform = `rotate(${deg}deg)`;
+      partnerCards.forEach((card, index) => {
+        const position = orbitPositions[index] || { x: 0, y: 0 };
+        card.style.transform = `translate(-50%, -50%) translate(${position.x}px, ${position.y}px) rotate(${-deg}deg)`;
+      });
+    };
+
+    const orbitLoop = (currentTime) => {
+      const delta = Math.min((currentTime - lastTime) / 16.67, 2.5);
+      lastTime = currentTime;
+
+      if (window.innerWidth > 768) {
+        if (!isHovered && !isDragging) {
+          if (Math.abs(velocity) > 0.02) {
+            velocity *= 0.94; // inércia amortecida
+            orbitAngle += velocity;
+          } else {
+            velocity = 0;
+            orbitAngle += baseSpeed * delta;
+          }
+          setOrbitAngle(orbitAngle);
+        }
+      }
+
+      requestAnimationFrame(orbitLoop);
+    };
+
+    // Pausa apenas sobre um card. O círculo continua em movimento se o cursor
+    // estiver em uma área vazia da seção.
+    partnerCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        isHovered = true;
+      });
+      card.addEventListener('mouseleave', () => {
+        if (!isDragging) {
+          clearTimeout(resumeTimeout);
+          resumeTimeout = setTimeout(() => {
+            isHovered = false;
+          }, 150);
+        }
+      });
+    });
+
+    // Interatividade de arrasto com mouse
+    partnersCircle.addEventListener('mousedown', (e) => {
+      if (window.innerWidth <= 768) return;
+      if (e.target.closest('a') || e.target.closest('button')) return;
+      isDragging = true;
+      isHovered = true;
+      startX = e.clientX;
+      startAngle = orbitAngle;
+      velocity = 0;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging || window.innerWidth <= 768) return;
+      const dx = e.clientX - startX;
+      const nextAngle = startAngle + dx * 0.35;
+      velocity = nextAngle - orbitAngle;
+      orbitAngle = nextAngle;
+      setOrbitAngle(orbitAngle);
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(() => {
+          isHovered = false;
+        }, 800);
+      }
+    });
+
+    // Interatividade de arrasto com toque para tablets
+    partnersCircle.addEventListener('touchstart', (e) => {
+      if (window.innerWidth <= 768) return;
+      if (e.target.closest('a') || e.target.closest('button')) return;
+      isDragging = true;
+      isHovered = true;
+      startX = e.touches[0].clientX;
+      startAngle = orbitAngle;
+      velocity = 0;
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging || window.innerWidth <= 768) return;
+      const dx = e.touches[0].clientX - startX;
+      const nextAngle = startAngle + dx * 0.35;
+      velocity = nextAngle - orbitAngle;
+      orbitAngle = nextAngle;
+      setOrbitAngle(orbitAngle);
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      if (isDragging) {
+        isDragging = false;
+        clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(() => {
+          isHovered = false;
+        }, 800);
+      }
+    });
+
+    // Inicialização da posição e loop de animação
+    layoutOrbit();
+    setOrbitAngle(0);
+    requestAnimationFrame(orbitLoop);
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth <= 768) {
+        partnersCircle.style.transform = '';
+        partnerCards.forEach(card => card.style.transform = '');
+      } else {
+        layoutOrbit();
+        setOrbitAngle(orbitAngle);
+      }
+    });
+  }
+
   // ── FAQ Accordion ──
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
