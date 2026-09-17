@@ -21,6 +21,7 @@ export default defineConfig({
         fundamentalUm: resolve(__dirname, 'ensino-fundamental-1-jundiai/index.html'),
         fundamentalDois: resolve(__dirname, 'ensino-fundamental-2-jundiai/index.html'),
         matriculas: resolve(__dirname, 'matriculas/index.html'),
+        propostaPedagogica: resolve(__dirname, 'proposta-pedagogica/index.html'),
       },
     },
   },

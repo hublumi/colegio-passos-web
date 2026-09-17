@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // mantemos a navegação útil levando às respectivas seções da Home.
   const homeFallbacks = {
     '/quem-somos/': '/#historia',
-    '/proposta-pedagogica/': '/#proposta',
     '/infraestrutura/': '/#infraestrutura',
     '/atividades-extracurriculares/': '/#grade',
     '/contato/': '/#contato',
@@ -46,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     enrollmentForm.addEventListener('submit', (event) => {
       event.preventDefault()
       const data = new FormData(enrollmentForm)
-      const message = `Olá! Quero agendar uma visita ao Colégio Passos.\n\nResponsável: ${data.get('responsavel')}\nAluno(a): ${data.get('aluno')}\nIdade: ${data.get('idade')}\nSérie desejada: ${data.get('serie')}\nTelefone: ${data.get('telefone')}\nE-mail: ${data.get('email')}\nMelhor horário: ${data.get('horario')}`
+      const message = `Olá! Quero agendar uma visita ao Colégio Passos.\n\nResponsável: ${data.get('responsavel')}\nAluno(a): ${data.get('aluno')}\nIdade: ${data.get('idade')}\nSérie desejada: ${data.get('serie')}\nTelefone: ${data.get('telefone')}\nE-mail: ${data.get('email')}\nQuando procura escola: ${data.get('quando') || 'Não informado'}\nMelhor horário: ${data.get('horario')}`
       window.open(`https://wa.me/5511974685979?text=${encodeURIComponent(message)}`, '_blank', 'noopener')
     })
   }
