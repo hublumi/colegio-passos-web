@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://colegiopassos.com.br/</loc>
+    <loc>https://www.colegiopassos.com.br/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://colegiopassos.com.br/educacao-infantil-jundiai/</loc>
+    <loc>https://www.colegiopassos.com.br/educacao-infantil-jundiai/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://colegiopassos.com.br/ensino-fundamental-1-jundiai/</loc>
+    <loc>https://www.colegiopassos.com.br/ensino-fundamental-1-jundiai/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://colegiopassos.com.br/ensino-fundamental-2-jundiai/</loc>
+    <loc>https://www.colegiopassos.com.br/ensino-fundamental-2-jundiai/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://colegiopassos.com.br/matriculas/</loc>
+    <loc>https://www.colegiopassos.com.br/matriculas/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://colegiopassos.com.br/blog-ansiedade-escolar.html</loc>
+    <loc>https://www.colegiopassos.com.br/blog-ansiedade-escolar.html</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://colegiopassos.com.br/blog-leitura.html</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://colegiopassos.com.br/blog-telas.html</loc>
+    <loc>https://www.colegiopassos.com.br/blog-leitura.html</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://colegiopassos.com.br/blog-protagonismo.html</loc>
+    <loc>https://www.colegiopassos.com.br/blog-telas.html</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://colegiopassos.com.br/termos.html</loc>
+    <loc>https://www.colegiopassos.com.br/blog-protagonismo.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.colegiopassos.com.br/termos.html</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://colegiopassos.com.br/politica.html</loc>
+    <loc>https://www.colegiopassos.com.br/politica.html</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

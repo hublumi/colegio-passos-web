@@ -16,4 +16,4 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-Sitemap: https://colegiopassos.com.br/sitemap.xml
+Sitemap: https://www.colegiopassos.com.br/sitemap.xml
