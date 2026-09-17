@@ -175,16 +175,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (cylinder && overlay) {
     const images = [
-      { src: '/infraestrutura/IMG_6154.jpg', alt: 'Espaço educacional Colégio Passos' },
-      { src: '/infraestrutura/IMG_6162.jpg', alt: 'Instalações Colégio Passos' },
-      { src: '/infraestrutura/IMG_6167.jpg', alt: 'Área de convivência Colégio Passos' },
-      { src: '/infraestrutura/IMG_6191.jpg', alt: 'Sala de aula Colégio Passos' },
-      { src: '/infraestrutura/IMG_6194.jpg', alt: 'Pátio Colégio Passos' },
-      { src: '/infraestrutura/IMG_6195.jpg', alt: 'Corredor Colégio Passos' },
-      { src: '/infraestrutura/IMG_6201.jpg', alt: 'Espaço externo Colégio Passos' },
-      { src: '/infraestrutura/IMG_6203.jpg', alt: 'Quadra Colégio Passos' },
-      { src: '/infraestrutura/IMG_6218.jpg', alt: 'Biblioteca Colégio Passos' },
-      { src: '/infraestrutura/IMG_6265.jpg', alt: 'Estrutura Colégio Passos' },
+      { src: '/infraestrutura/como-escolher-escola-particular-jundiai.webp', alt: 'Fachada do Colégio Passos — escola particular em Jundiaí' },
+      { src: '/infraestrutura/espaco-educacional-colegio-passos-jundiai.webp', alt: 'Espaço educacional do Colégio Passos em Jundiaí' },
+      { src: '/infraestrutura/ambiente-colegio-particular-vila-lacerda.webp', alt: 'Ambiente de convivência do Colégio Passos na Vila Lacerda' },
+      { src: '/infraestrutura/area-interna-colegio-particular-jundiai.webp', alt: 'Área interna e atendimento do Colégio Passos em Jundiaí' },
+      { src: '/infraestrutura/parquinho-colegio-particular-jundiai.webp', alt: 'Parquinho do Colégio Passos — Educação Infantil em Jundiaí' },
+      { src: '/infraestrutura/quadra-colegio-particular-jundiai.webp', alt: 'Quadra coberta do Colégio Passos em Jundiaí' },
+      { src: '/infraestrutura/sala-de-aula-escola-particular-jundiai.webp', alt: 'Sala de aula da escola particular Colégio Passos em Jundiaí' },
+      { src: '/infraestrutura/estrutura-escola-particular-vila-lacerda-jundiai.webp', alt: 'Estrutura de sala de aula do Colégio Passos na Vila Lacerda' },
     ];
 
     const isMobile   = () => window.innerWidth <= 640;
