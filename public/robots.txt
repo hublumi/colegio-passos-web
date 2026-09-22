@@ -10,6 +10,10 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
+# Search crawler used for discovery and citations in ChatGPT Search
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
