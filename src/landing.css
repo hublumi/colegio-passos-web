@@ -35,7 +35,33 @@
 .faq-answer p { padding-bottom: 1.2rem; margin: 0; }
 .faq-item.open .faq-answer { grid-template-rows: 1fr; }
 .related-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.6rem; }
-.related-links a { color: var(--primary-color); font-weight: 700; }
+.related-links a {
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  color: var(--text-dark);
+  display: inline-flex;
+  font-weight: 700;
+  padding: .7rem 1rem;
+  text-decoration: none;
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
+}
+.related-links a:hover,
+.related-links a:focus-visible {
+  background: var(--bg-warm);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+.guide-card-link {
+  color: var(--text-dark);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .25s ease;
+}
+.guide-card-link:hover,
+.guide-card-link:focus-visible { color: var(--secondary-color); }
 .enrollment-form { background: var(--white); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); max-width: 820px; padding: 2rem; margin: 2rem auto 0; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-field { display: flex; flex-direction: column; gap: .4rem; }
