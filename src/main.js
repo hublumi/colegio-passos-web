@@ -1,4 +1,5 @@
 import './style.css'
+import './landing.css'
 
 document.addEventListener('DOMContentLoaded', () => {
   // Inicialização do Intersection Observer para as micro-interações de fade-in
