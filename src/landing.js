@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault()
       const data = new FormData(enrollmentForm)
       const message = `Olá! Quero agendar uma visita ao Colégio Passos.\n\nResponsável: ${data.get('responsavel')}\nAluno(a): ${data.get('aluno')}\nIdade: ${data.get('idade')}\nSérie desejada: ${data.get('serie')}\nTelefone: ${data.get('telefone')}\nE-mail: ${data.get('email')}\nQuando procura escola: ${data.get('quando') || 'Não informado'}\nMelhor horário: ${data.get('horario')}`
-      window.open(`https://wa.me/5511974685979?text=${encodeURIComponent(message)}`, '_blank', 'noopener')
+      window.open(`https://wa.me/551144922787?text=${encodeURIComponent(message)}`, '_blank', 'noopener')
     })
   }
 })
