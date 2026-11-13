@@ -1,7 +1,75 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
+const googleAdsConversionTracking = `
+(function () {
+  const formConversion = 'AW-18546404288/x8x2CMC0o7UdEMDXzotF';
+  const whatsappConversion = 'AW-18546404288/6_CTCM0o7UdEMDXzotF';
+
+  function sendConversion(sendTo) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', { send_to: sendTo });
+    }
+  }
+
+  function bindConversionTracking() {
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      const href = link.getAttribute('href') || '';
+      const isSchoolWhatsApp = href.includes('api.whatsapp.com') || href.includes('wa.me/551144922787');
+
+      if (isSchoolWhatsApp) {
+        link.addEventListener('click', function () {
+          sendConversion(whatsappConversion);
+        });
+      }
+    });
+
+    document.querySelectorAll('form').forEach(function (form) {
+      form.addEventListener('submit', function () {
+        sendConversion(formConversion);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindConversionTracking, { once: true });
+  } else {
+    bindConversionTracking();
+  }
+})();
+`;
+
+const googleAdsTag = {
+  name: 'google-ads-tag',
+  transformIndexHtml: {
+    order: 'pre',
+    handler() {
+      return [
+        {
+          tag: 'script',
+          attrs: {
+            async: true,
+            src: 'https://www.googletagmanager.com/gtag/js?id=AW-18546404288',
+          },
+          injectTo: 'head',
+        },
+        {
+          tag: 'script',
+          children: "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18546404288');",
+          injectTo: 'head',
+        },
+        {
+          tag: 'script',
+          children: googleAdsConversionTracking,
+          injectTo: 'body',
+        },
+      ];
+    },
+  },
+};
+
 export default defineConfig({
+  plugins: [googleAdsTag],
   build: {
     minify: 'esbuild',
     cssMinify: true,
